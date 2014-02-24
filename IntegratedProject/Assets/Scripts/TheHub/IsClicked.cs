@@ -31,7 +31,7 @@ public class IsClicked : MonoBehaviour {
     {
         distance = Vector2.Distance(player.transform.position, button.transform.position);
 
-        if (distance < 1)
+        if (distance < 2)
         {
             test++;
             playerInRange = true;
