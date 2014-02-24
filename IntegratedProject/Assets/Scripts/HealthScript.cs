@@ -8,10 +8,19 @@ public class HealthScript : MonoBehaviour
 	public float timeBetweenDamage = 1.0f;
 
 	private bool damageCalled = false;
+
+	Animator charAnimation;
+
+	void Start () 
+	{
+		charAnimation = GetComponent<Animator>();
+	}
 	
 	void Death()
 	{
 		Debug.Log("Called Death() Method successfully");
+		charAnimation.SetBool ("Dead", true);
+
 	}
 
 	void OnCollisionStay2D(Collision2D col)
