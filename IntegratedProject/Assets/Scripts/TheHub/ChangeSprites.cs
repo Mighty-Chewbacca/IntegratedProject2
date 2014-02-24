@@ -5,6 +5,7 @@ public class ChangeSprites : MonoBehaviour
 {
 	public int currentSprite;
 	public Sprite level1, level2, level3;
+    public IsClicked MyButton;
 	private SpriteRenderer myRenderer;
 
 	void Start () 
