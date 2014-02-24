@@ -7,7 +7,6 @@ public class ChangeSprites : MonoBehaviour
 	public Sprite level1, level2, level3;
     public IsClicked MyButton;
 	private SpriteRenderer myRenderer;
-
 	void Start () 
 	{
 		myRenderer = gameObject.GetComponent<SpriteRenderer>();
