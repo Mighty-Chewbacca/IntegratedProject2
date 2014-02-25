@@ -3,6 +3,7 @@ using System.Collections;
 
 public class HealthScript : MonoBehaviour 
 {
+	//This is health!!!!
 	public int health = 4;
 	public Texture2D heart;
 	public float timeBetweenDamage = 1.0f;
