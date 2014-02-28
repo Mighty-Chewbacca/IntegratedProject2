@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: f382cd7e8dd9dab4f8c4f1a161756452
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 53
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: kick_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 15
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 16
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 18
+        width: 78
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_3
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 10
+        width: 68
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 19
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_5
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 16
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_6
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 16
+        width: 80
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_7
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 18
+        width: 78
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: kick_8
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 17
+        width: 60
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
