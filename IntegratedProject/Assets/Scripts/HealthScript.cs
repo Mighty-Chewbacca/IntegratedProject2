@@ -3,6 +3,7 @@ using System.Collections;
 
 public class HealthScript : MonoBehaviour 
 {
+	//comments!!!
 	//This is health!!!!
 	public int health = 4;
 	public Texture2D heart;
