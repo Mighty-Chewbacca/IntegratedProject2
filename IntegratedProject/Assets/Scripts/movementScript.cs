@@ -3,6 +3,7 @@ using System.Collections;
 
 public class movementScript : MonoBehaviour 
 {
+	//speed value
 	public float maxSpeed = 10.0f;
 	bool facingRight = true;
 
