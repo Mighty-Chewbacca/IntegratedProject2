@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-// resources used;  http://answers.unity3d.com/questions/323195/how-can-i-have-a-static-class-i-can-access-from-an.html
+﻿// resources used;  http://answers.unity3d.com/questions/323195/how-can-i-have-a-static-class-i-can-access-from-an.html
 // 					http://unitygems.com/saving-data-1-remember-me/
 
 //You must include these namespaces
