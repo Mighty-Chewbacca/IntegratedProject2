@@ -6,8 +6,7 @@ public class movementScript : MonoBehaviour
 	//speed value
 	public float maxSpeed = 10.0f;
 	bool facingRight = true;
-
-	 bool grounded = true;
+	public bool grounded = true;
 	public float jumpforce = 500f;
 	
 	Animator charAnimation;
@@ -19,31 +18,19 @@ public class movementScript : MonoBehaviour
 	}
 
 
-	void OnCollisionExit2D(Collision2D col)
-	{
-				if (col.collider.tag == "Ground") {
-						grounded = false;
-						charAnimation.SetBool ("Grounded", false);
-			Debug.Log("went to orbit");
-				}
-	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.collider.tag == "Ground"){
+		if (col.collider.tag == "Ground")
+        {
 			grounded = true;
 			charAnimation.SetBool ("Grounded", true);
 			Debug.Log("grounded");
-				}
+		}
 	}
-
-
 
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-
-
-
 		float move = Input.GetAxis("Horizontal");
 		charAnimation.SetFloat("Speed", Mathf.Abs (move));
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
@@ -65,6 +52,9 @@ if (Input.GetKey (KeyCode.E)) {
 
 		if(Input.GetKeyDown(KeyCode.Space) & grounded == true)
 		{
+            grounded = false;
+            charAnimation.SetBool("Grounded", false);
+            Debug.Log("went to orbit");
 			rigidbody2D.AddForce(new Vector2 (0, jumpforce));
 		}
 
