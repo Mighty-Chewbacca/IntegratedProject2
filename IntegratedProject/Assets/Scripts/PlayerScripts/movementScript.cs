@@ -5,7 +5,7 @@ public class movementScript : MonoBehaviour
 {
 	//speed value
 	public float maxSpeed = 10.0f;
-	bool facingRight = true;
+	public bool facingRight = true;
 	public bool grounded = true;
 	public float jumpforce = 500f;
 	
