@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ObjectMovementScript : MonoBehaviour 
 {
+    //object NEEDS 
+        // box collider (or any collider)
+        // rigidbody2d with 1000000 mass, 1000000 angular drag and 1000000 gravity scale, must also be fixed angle
     public GameObject player, thisObject;
     public movementScript playerMovementScript;
     public float distance;

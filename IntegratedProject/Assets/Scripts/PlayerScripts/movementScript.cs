@@ -8,6 +8,7 @@ public class movementScript : MonoBehaviour
 	public bool facingRight = true;
 	public bool grounded = true;
 	public float jumpforce = 500f;
+    public GameObject jumpCollider;
 	
 	Animator charAnimation;
 
