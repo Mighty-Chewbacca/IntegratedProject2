@@ -8,23 +8,24 @@ public class movementScript : MonoBehaviour
 	public bool facingRight = true;
 	public bool grounded = true;
 	public float jumpforce = 500f;
-    public GameObject jumpCollider;
-	
+ 	public GameObject jumpCollider;
+	bool isAnimationOn = false;
+
+
 	Animator charAnimation;
 
 	// Use this for initialization
 	void Start () 
 	{
-		charAnimation = GetComponent<Animator>();
+		if (isAnimationOn) { charAnimation = GetComponent<Animator> (); }
 	}
-
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.collider.tag == "Ground")
         {
 			grounded = true;
-			charAnimation.SetBool ("Grounded", true);
+			if (isAnimationOn) {charAnimation.SetBool ("Grounded", true);}
 			Debug.Log("grounded");
 		}
 	}
@@ -33,7 +34,7 @@ public class movementScript : MonoBehaviour
 	void FixedUpdate () 
 	{
 		float move = Input.GetAxis("Horizontal");
-		charAnimation.SetFloat("Speed", Mathf.Abs (move));
+		if (isAnimationOn) {charAnimation.SetFloat ("Speed", Mathf.Abs (move));	}
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 		
 		if(move > 0 && !facingRight)
