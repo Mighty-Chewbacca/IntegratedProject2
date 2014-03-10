@@ -1,5 +1,6 @@
 ﻿/*
 used materials; http://www.youtube.com/watch?v=NOWfloaxDX4
+used materials; http://www.youtube.com/watch?v=myQcCCa4jlM
 
 */
 
@@ -13,7 +14,7 @@ public class TextDisplayScript : MonoBehaviour {
 
 	//declarations
 
-	public GUISkin skin;
+	public GUISkin myskin;
 
 	private bool guiEnabled = false;
 	private GameObject MyCamera; 
@@ -26,6 +27,7 @@ public class TextDisplayScript : MonoBehaviour {
 	void Start () {
 	
 		//set up NPC dialogs
+		// first parameter is the name of the object the second is the dialogue
 
 		if (!DataStore.NPCText.ContainsKey ("npc1")) {DataStore.NPCText.Add ("npc1", "Welcome Adventurer! I'm the first NPC.");}
 		if (!DataStore.NPCText.ContainsKey ("npc2")) {DataStore.NPCText.Add ("npc2", "And I'm the second :P");}
@@ -34,7 +36,8 @@ public class TextDisplayScript : MonoBehaviour {
 		//set main chamera for tracking
 		MyCamera = GameObject.Find("Main Camera");
 		target = this.gameObject.transform;
-		skin = Resources.LoadAssetAtPath("Assets/MySkin", typeof(GUISkin)) as GUISkin;
+		//assign global skin from DT
+		myskin = DataStore.DT.skin;
 
 	}
 
@@ -60,11 +63,14 @@ public class TextDisplayScript : MonoBehaviour {
 				
 		if (guiEnabled) {
 						//draw gui box
-			GUI.skin = skin;
-			GUI.Box (new Rect (screenPos.x, 50, 500, 100),DataStore.NPCText[this.gameObject.name]);
+			GUI.skin = myskin;
+
+			// 14 pixel width per character including spaces and spec chars
+			GUI.Box (new Rect (screenPos.x, 50, (DataStore.NPCText[this.gameObject.name].Length*14),100),DataStore.NPCText[this.gameObject.name]);
 						
+			print(DataStore.NPCText[this.gameObject.name].Length);
 			//print(GetInstanceID());
-					//	print(this.gameObject.name);
+			//	print(this.gameObject.name);
 						}
 		}
 
