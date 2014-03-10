@@ -8,7 +8,6 @@ public class movementScript : MonoBehaviour
 	public bool facingRight = true;
 	public bool grounded = true;
 	public float jumpforce = 500f;
- 	public GameObject jumpCollider;
 	bool isAnimationOn = false;
 
 
@@ -55,7 +54,7 @@ if (Input.GetKey (KeyCode.E)) {
 		if(Input.GetKeyDown(KeyCode.Space) & grounded == true)
 		{
             grounded = false;
-            charAnimation.SetBool("Grounded", false);
+            if (isAnimationOn) { charAnimation.SetBool("Grounded", false); }
             Debug.Log("went to orbit");
 			rigidbody2D.AddForce(new Vector2 (0, jumpforce));
 		}
