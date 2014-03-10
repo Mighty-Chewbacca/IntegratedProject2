@@ -1,5 +1,6 @@
 ﻿// resources used;  http://answers.unity3d.com/questions/323195/how-can-i-have-a-static-class-i-can-access-from-an.html
 // 					http://unitygems.com/saving-data-1-remember-me/
+//					http://www.dotnetperls.com/list
 
 //You must include these namespaces
 //to use BinaryFormatter
@@ -11,15 +12,22 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+
 public class DataStore : MonoBehaviour
 {
 	public static DataStore DT;
 
 	//public GameObject soundManager;
+	public GUISkin skin;
 	public int score;
 	public string PlayerName = "";
 	public float gameTime;
 	public string PlayerProgress = "almost done";
+	public int NPCCount;
+	
+	public static Dictionary<string,string> NPCText = new Dictionary<string,string>();
+
+
 
 	void Awake()
 	{
@@ -33,7 +41,7 @@ public class DataStore : MonoBehaviour
 
 
 
-
+	//save stuff to file
 	public void SavaToFile(object source, string fileName)
 		{
 		Debug.Log("save methood begins");
@@ -47,6 +55,7 @@ public class DataStore : MonoBehaviour
 		Debug.Log("save methood ended");
 		}
 
+	//load data back from file
 	public object LoadData(string objectName)
 	{
 		var output = new object();
