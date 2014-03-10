@@ -8,7 +8,6 @@ public class movementScript : MonoBehaviour
 	public bool facingRight = true;
 	public bool grounded = true;
 	public float jumpforce = 500f;
-	bool isAnimationOn = false;
 
 
 	Animator charAnimation;
@@ -16,7 +15,7 @@ public class movementScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		if (isAnimationOn) { charAnimation = GetComponent<Animator> (); }
+		charAnimation = GetComponent<Animator> ();
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -24,7 +23,7 @@ public class movementScript : MonoBehaviour
 		if (col.collider.tag == "Ground")
         {
 			grounded = true;
-			if (isAnimationOn) {charAnimation.SetBool ("Grounded", true);}
+			charAnimation.SetBool ("Grounded", true);
 			Debug.Log("grounded");
 		}
 	}
@@ -33,7 +32,7 @@ public class movementScript : MonoBehaviour
 	void FixedUpdate () 
 	{
 		float move = Input.GetAxis("Horizontal");
-		if (isAnimationOn) {charAnimation.SetFloat ("Speed", Mathf.Abs (move));	}
+		charAnimation.SetFloat ("Speed", Mathf.Abs (move));
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 		
 		if(move > 0 && !facingRight)
@@ -54,7 +53,7 @@ if (Input.GetKey (KeyCode.E)) {
 		if(Input.GetKeyDown(KeyCode.Space) & grounded == true)
 		{
             grounded = false;
-            if (isAnimationOn) { charAnimation.SetBool("Grounded", false); }
+            charAnimation.SetBool("Grounded", false);
             Debug.Log("went to orbit");
 			rigidbody2D.AddForce(new Vector2 (0, jumpforce));
 		}
