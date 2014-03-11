@@ -27,7 +27,7 @@ public class HealthScript : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D col)
 	{
-		if (col.collider.tag == "damage" && damageCalled == false) 
+		if (col.collider.tag == "Enemy" && damageCalled == false) 
 		{
 			damageCalled = true; 
 			StartCoroutine(DamageTimer ());
