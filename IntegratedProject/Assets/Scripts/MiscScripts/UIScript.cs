@@ -24,8 +24,8 @@ public class UIScript : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.DrawTexture(new Rect(520, 10, 40, 40), can, ScaleMode.StretchToFill, true, 10.0F);
-        GUI.DrawTexture(new Rect(600, 10, 60, 40), bottle, ScaleMode.StretchToFill, true, 10.0F);
-        GUI.DrawTexture(new Rect(700, 10, 60, 40), paper, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect(1010, 10, 40, 40), can, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect(1200, 10, 60, 40), bottle, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect(1380, 10, 60, 40), paper, ScaleMode.StretchToFill, true, 10.0F);
     }
 }

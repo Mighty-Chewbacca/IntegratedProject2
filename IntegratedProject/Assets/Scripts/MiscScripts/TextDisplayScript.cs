@@ -82,7 +82,7 @@ public class TextDisplayScript : MonoBehaviour {
 			GUI.skin = myskin;
 
 			// 14 pixel width per character including spaces and spec chars
-			GUI.Box (new Rect (screenPos.x, 250, (DataStore.NPCText[this.gameObject.name].Length*14),100),DataStore.NPCText[this.gameObject.name]);
+			GUI.Box (new Rect (screenPos.x, 350, (DataStore.NPCText[this.gameObject.name].Length*14),100),DataStore.NPCText[this.gameObject.name]);
 						
 			print(DataStore.NPCText[this.gameObject.name].Length);
 			//print(GetInstanceID());
