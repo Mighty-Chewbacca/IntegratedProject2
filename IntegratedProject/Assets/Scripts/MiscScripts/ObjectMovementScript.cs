@@ -25,6 +25,7 @@ public class ObjectMovementScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.L) && isLifted == true)
         {
             isLifted = false;
+            playerMovementScript.grounded = true;
         }
 
         if (isLifted == true)

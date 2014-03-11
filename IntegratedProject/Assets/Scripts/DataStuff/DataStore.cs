@@ -52,7 +52,7 @@ public class DataStore : MonoBehaviour
 			//Save the scores
 			b.Serialize(f, source);
 			f.Close();
-		Debug.Log("save methood ended");
+		Debug.Log("save method ended");
 		}
 
 	//load data back from file
