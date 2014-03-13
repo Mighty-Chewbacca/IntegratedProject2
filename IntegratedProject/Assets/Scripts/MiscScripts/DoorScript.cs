@@ -4,7 +4,7 @@ using System.Collections;
 public class DoorScript : MonoBehaviour 
 {
 
-    public Inventory playersInv;
+    //public Inventory playersInv;
     public GameObject player, thisObject;
     public float distance;
     public bool doorLocked;
@@ -20,7 +20,7 @@ public class DoorScript : MonoBehaviour
     {
         distance = Vector2.Distance(player.transform.position, thisObject.transform.position);
 
-        if (distance < 2 && (playersInv.can == 3 && playersInv.bottle == 2 && playersInv.paper == 2))
+		if (distance < 2 && (Inventory.can == 3 && Inventory.bottle == 2 && Inventory.paper == 2))
         {
             doorLocked = false;
             Unlock();

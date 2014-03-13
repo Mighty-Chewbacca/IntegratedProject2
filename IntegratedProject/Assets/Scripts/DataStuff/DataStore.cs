@@ -1,6 +1,7 @@
 ﻿// resources used;  http://answers.unity3d.com/questions/323195/how-can-i-have-a-static-class-i-can-access-from-an.html
 // 					http://unitygems.com/saving-data-1-remember-me/
 //					http://www.dotnetperls.com/list
+//					http://www.dotnetperls.com/enum
 
 //You must include these namespaces
 //to use BinaryFormatter
@@ -17,16 +18,24 @@ public class DataStore : MonoBehaviour
 {
 	public static DataStore DT;
 
-	//public GameObject soundManager;
+
 	public GUISkin skin;
 	public int score;
-	public string PlayerName = "";
-	public float gameTime;
+
 	public string PlayerProgress = "almost done";
 	public int NPCCount;
-	
+	public string checkpoint = "MoveSign";
+
+
 	public static Dictionary<string,string> NPCText = new Dictionary<string,string>();
 
+	public string PlayerName = "";
+	public enum Gender {male, female};
+	public Gender PlayerGender = Gender.male; //defaults to male
+
+	public static Dictionary<string,short> PlayerInventory = new Dictionary<string,short>();
+
+	public static Dictionary<string,int> HUBBuildings = new Dictionary<string,int>();
 
 
 	void Awake()
