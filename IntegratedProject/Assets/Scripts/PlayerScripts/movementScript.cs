@@ -50,7 +50,7 @@ if (Input.GetKey (KeyCode.E)) {
 
 */
 
-		if(Input.GetKeyDown(KeyCode.Space) & grounded == true)
+		if((Input.GetKeyDown(KeyCode.Space)) && (grounded == true))
 		{
             grounded = false;
             charAnimation.SetBool("Grounded", false);
