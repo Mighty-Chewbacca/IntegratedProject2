@@ -33,10 +33,10 @@ public class ObjectMovementScript : MonoBehaviour
             //flip the object to the front of the player depending on which way they are facing
             if (playerMovementScript.facingRight == true)
                 //offset the position so it is infront of the player not on top of them
-                thisObject.transform.position = new Vector3(player.transform.position.x + 2, player.transform.position.y, player.transform.position.z);
+                thisObject.transform.position = new Vector3(player.transform.position.x + 2, thisObject.transform.position.y, player.transform.position.z);
 
             if (playerMovementScript.facingRight == false)
-                thisObject.transform.position = new Vector3(player.transform.position.x - 2, player.transform.position.y, player.transform.position.z);
+                thisObject.transform.position = new Vector3(player.transform.position.x - 2, thisObject.transform.position.y, player.transform.position.z);
 
             //stop the player jumping whilst holding the object
             playerMovementScript.grounded = false;

@@ -8,11 +8,12 @@ using System.Collections;
 
 public class MeleeeAttack : MonoBehaviour {
 
-	public float swingSpeed = 250.0f;
+	public float swingSpeed = 5000.0f;
 	public float maxAngle = 160.0f;
 	public float minAngle = 359.9f;
 	private bool movingUp = true;
 	private bool motiondone = false;
+    private bool isSwinging = false;
 
 
 
@@ -21,17 +22,17 @@ public class MeleeeAttack : MonoBehaviour {
 
 
 	{
-
 		//this.GetComponent (BoxCollider2D).collider2D.enabled = false;
 		//this.collider2D.enabled = true;
 
-		do {
-
-
-		if (movingUp) {
+		do 
+        {
+		if (movingUp) 
+        {
 			transform.Rotate (Vector3.forward * Time.deltaTime * swingSpeed);
 		}
-		else {
+		else 
+        {
 			transform.Rotate (Vector3.back * Time.deltaTime * swingSpeed);
 		}
 		
@@ -46,6 +47,7 @@ public class MeleeeAttack : MonoBehaviour {
 
 			
 				motiondone = true; //exit the loop
+                isSwinging = false;
 			//reset the postition and direction
 			movingUp = true;
 			transform.localEulerAngles = new Vector3(0,0,1f);
@@ -71,8 +73,13 @@ public class MeleeeAttack : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.M) )
 		{
-			SwingArm ();
+            isSwinging = true;
 		}
+
+        if (isSwinging)
+        {
+            SwingArm();
+        }
 	
 
 }

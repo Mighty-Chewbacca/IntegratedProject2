@@ -33,28 +33,31 @@ public class SaveCheckpointScript : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.tag == "Player")
+        {
 
 
-		// save player's positon
-		DataStore.DT.checkpoint = this.gameObject.name;
-		print(this.gameObject.name);
+            // save player's positon
+            DataStore.DT.checkpoint = this.gameObject.name;
+            print(this.gameObject.name);
 
-		//--- test load back ---
-		//print (GameObject.Find(DataStore.DT.checkpoint).transform.position);
-		//GameObject.Find("char").transform.position = new Vector3(13.2f, 10.0f, 0.0f);
-
-
-
-		//save player inventory
-
-		DataStore.PlayerInventory ["can"] = Inventory.can;
-		DataStore.PlayerInventory ["bottle"] = Inventory.bottle;
-		DataStore.PlayerInventory ["paper"] = Inventory.paper;
+            //--- test load back ---
+            //print (GameObject.Find(DataStore.DT.checkpoint).transform.position);
+            //GameObject.Find("char").transform.position = new Vector3(13.2f, 10.0f, 0.0f);
 
 
-		print ("progress saved!");
 
+            //save player inventory
+
+            DataStore.PlayerInventory["can"] = Inventory.can;
+            DataStore.PlayerInventory["bottle"] = Inventory.bottle;
+            DataStore.PlayerInventory["paper"] = Inventory.paper;
+
+
+            print("progress saved!");
+        }
 	}
 
 }

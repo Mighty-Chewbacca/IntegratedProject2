@@ -8,7 +8,7 @@ public class HealthScript : MonoBehaviour
 	public int health = 4;
 	public Texture2D heart;
 	public float timeBetweenDamage = 1.0f;
-
+    private int damage;
 	private bool damageCalled = false;
 
 	Animator charAnimation;
@@ -31,9 +31,7 @@ public class HealthScript : MonoBehaviour
 
 	void LoadLastCheckpoint()
 	{
-		//give back lives
-		health = 4;
-
+        health = 4;
 		//spawn player back to the last checkpoint position
 		GameObject.Find ("char").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
 
@@ -42,8 +40,7 @@ public class HealthScript : MonoBehaviour
 		Inventory.can = DataStore.PlayerInventory ["can"];
 		Inventory.bottle = DataStore.PlayerInventory ["bottle"];
 		Inventory.paper = DataStore.PlayerInventory ["paper"];
-		
-		
+
 		print ("progress loaded!");
 
 		}
@@ -59,11 +56,19 @@ public class HealthScript : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D col)
 	{
-		if (col.collider.tag == "Enemy" && damageCalled == false) 
+		if (col.collider.tag == "1Damage" && damageCalled == false) 
 		{
+            damage = 1;
 			damageCalled = true; 
 			StartCoroutine(DamageTimer ());
-		} 
+		}
+
+        if (col.collider.tag == "2Damage" && damageCalled == false)
+        {
+            damage = 2;
+            damageCalled = true;
+            StartCoroutine(DamageTimer());
+        } 
 		else if (col.collider.tag == "death") 
 		{
 			health = 0;
@@ -73,7 +78,7 @@ public class HealthScript : MonoBehaviour
 
 	IEnumerator DamageTimer() 
 	{
-		health--;
+        health = health - damage;
 		yield return new WaitForSeconds (timeBetweenDamage);
 		damageCalled = false;
 	}
@@ -88,39 +93,10 @@ public class HealthScript : MonoBehaviour
 		{
 			health = 0;
 		}
-	}
 
-	void OnGUI() 
-	{
-		switch (health) 
-		{
-			case 4:
-			GUI.DrawTexture (new Rect (10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (130, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (190, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			break;
-
-			case 3:
-			GUI.DrawTexture (new Rect (10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (130, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-
-			break;
-				
-			case 2:
-			GUI.DrawTexture (new Rect (10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			GUI.DrawTexture (new Rect (70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-
-			break;
-				
-			case 1:
-			GUI.DrawTexture (new Rect (10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
-			break;
-
-			case 0:
-			Death();
-			break;
-		}
+        if (health == 0)
+        {
+            Death();
+        }
 	}
 }

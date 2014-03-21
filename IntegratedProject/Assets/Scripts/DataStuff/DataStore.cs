@@ -18,7 +18,6 @@ public class DataStore : MonoBehaviour
 {
 	public static DataStore DT;
 
-
 	public GUISkin skin;
 	public int score;
 
