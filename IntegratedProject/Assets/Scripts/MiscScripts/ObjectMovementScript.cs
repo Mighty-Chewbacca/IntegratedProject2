@@ -11,7 +11,6 @@ public class ObjectMovementScript : MonoBehaviour
     public float distance;
     public bool isLifted = false;
 
-
 	// Update is called once per frame
 	void Update () 
     {
@@ -25,7 +24,7 @@ public class ObjectMovementScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.E) && isLifted == true)
         {
             isLifted = false;
-            playerMovementScript.grounded = true;
+            playerMovementScript.isLifting = false;
         }
 
         if (isLifted == true)
@@ -39,7 +38,7 @@ public class ObjectMovementScript : MonoBehaviour
                 thisObject.transform.position = new Vector3(player.transform.position.x - 2, thisObject.transform.position.y, player.transform.position.z);
 
             //stop the player jumping whilst holding the object
-            playerMovementScript.grounded = false;
+            playerMovementScript.isLifting = true;
         }
 	}
 

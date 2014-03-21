@@ -21,6 +21,7 @@ public class PickupScript : MonoBehaviour
 		{
 			print("can got");
 			Inventory.bottle++;
+
 			//update gui
 			//set coin to inactive
 			gameObject.SetActive(false);

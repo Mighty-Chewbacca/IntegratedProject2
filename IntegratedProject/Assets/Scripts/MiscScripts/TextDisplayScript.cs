@@ -37,7 +37,7 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("PickupsSign")) { DataStore.NPCText.Add("PickupsSign", "You should pick up all rubbish!"); }
         if (!DataStore.NPCText.ContainsKey("EnemySign")) { DataStore.NPCText.Add("EnemySign", "This wee guy takes off 1 heart!"); }
         if (!DataStore.NPCText.ContainsKey("AttackSign")) { DataStore.NPCText.Add("AttackSign", "Click the mouse to attack!"); }
-        if (!DataStore.NPCText.ContainsKey("Clyde")) { DataStore.NPCText.Add("Clyde", "Press 'T' to continue!"); }
+        if (!DataStore.NPCText.ContainsKey("Clyde")) { DataStore.NPCText.Add("Clyde", "Press T to finish the game!"); }
         if (!DataStore.NPCText.ContainsKey("Clyde(HUB)")) { DataStore.NPCText.Add("Clyde(HUB)", "Click me then a worker to build!"); }
         if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Collect all trash to unlock door"); }
         if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "'T' to go back to level 1"); }
@@ -45,6 +45,7 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("Gardener")) { DataStore.NPCText.Add("Gardener", "click me to upgrade gardens"); }
         if (!DataStore.NPCText.ContainsKey("Decorator")) { DataStore.NPCText.Add("Decorator", "click me to upgrade decorations"); }
         if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
+		if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
 		//set main chamera for tracking
 		MyCamera = GameObject.Find("Main Camera");
 		target = this.gameObject.transform;
