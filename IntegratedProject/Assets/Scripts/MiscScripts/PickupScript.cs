@@ -4,6 +4,7 @@ using System.Collections;
 public class PickupScript : MonoBehaviour
 {
 	//public Inventory playerInv;
+	public HealthScript playersHealth;
 	
 	
 	void OnTriggerEnter2D(Collider2D other)
@@ -12,8 +13,6 @@ public class PickupScript : MonoBehaviour
 		{
 			print("can got");
 			Inventory.can ++;
-			//update gui
-			//set coin to inactive
 			gameObject.SetActive(false);
 		}
 		
@@ -21,9 +20,6 @@ public class PickupScript : MonoBehaviour
 		{
 			print("can got");
 			Inventory.bottle++;
-
-			//update gui
-			//set coin to inactive
 			gameObject.SetActive(false);
 		}
 		
@@ -31,8 +27,13 @@ public class PickupScript : MonoBehaviour
 		{
 			print("paper got");
 			Inventory.paper++;
-			//update gui
-			//set coin to inactive
+			gameObject.SetActive(false);
+		}
+
+		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Cherry")
+		{
+			print("Cherry got");
+			playersHealth.health++;
 			gameObject.SetActive(false);
 		}
 	}
