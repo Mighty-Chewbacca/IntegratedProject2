@@ -29,6 +29,8 @@ public class movementScript : MonoBehaviour
 	public static RaycastHit2D LHray;
 	
 	public bool isDebug = false;
+
+	public float move;
 	
 	
 	
@@ -46,20 +48,14 @@ public class movementScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		
-		
-		
-		
-		
 		// moving the player sideways
-		float move = Input.GetAxis("Horizontal");
+		move = Input.GetAxis("Horizontal");
 		charAnimation.SetFloat ("Speed", Mathf.Abs (move));
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 		
 		
 		if(move > 0 && !facingRight)    {FlipFacing();}
 		else if(move < 0 && facingRight)    {FlipFacing();}
-		
 		
 		// player jump
 		
