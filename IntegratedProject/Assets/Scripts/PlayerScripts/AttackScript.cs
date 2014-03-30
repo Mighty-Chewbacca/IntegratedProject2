@@ -7,6 +7,7 @@ using System.Collections;
 public class AttackScript : MonoBehaviour 
 {
 	public GameObject objBullet;
+    public movementScript playerMovement;
 
 	//input variables (variables used to process and handle input)
 	private Vector3 inputRotation;
@@ -22,20 +23,9 @@ public class AttackScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{		
-		FindInput ();
+		FindInput();
+        RotateArm();
 
-
-		//find the rotation of the mouse to change the arm rotation
-		//rotation
-		Vector3 mousePos = Input.mousePosition;
-		mousePos.z = 0.5f;
-			
-		Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
-		mousePos.x = mousePos.x - objectPos.x;
-		mousePos.y = mousePos.y - objectPos.y;
-			
-		float angle = (Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg)+10;
-		transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	}
 
 	void FindInput ()
@@ -58,4 +48,19 @@ public class AttackScript : MonoBehaviour
 		//Instantiate(ptrScriptVariable.objBullet, tempVector, Quaternion.LookRotation(inputRotation) ); // create a bullet, and rotate it based on the vector inputRotation
 		Instantiate(objBullet, tempVector, Quaternion.LookRotation(inputRotation) );
 	}
+
+    void RotateArm()
+    {
+        //find the rotation of the mouse to change the arm rotation
+        //rotation
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 0.5f;
+
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+
+        float angle = (Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg) + 10;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
 }
