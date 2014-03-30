@@ -20,7 +20,7 @@ public class movementScript : MonoBehaviour
 	public bool grounded = true;
 	public float jumpforce = 6000f;
 	public float distance;
-	public const float jumperror = 1.795f; //DONT CHANGE THIS !!!
+	public const float jumperror = 1.8f; //DONT CHANGE THIS !!!
 	
 	public  float LH = -0.66f;
 	public  float RH = 0.66f;
