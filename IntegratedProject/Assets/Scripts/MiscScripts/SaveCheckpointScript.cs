@@ -25,11 +25,12 @@ public class SaveCheckpointScript : MonoBehaviour {
 		
 		//set up Player Inventory
 		// first parameter is the name of the object the second is the amount
-		
+
+		/*
 		if (!DataStore.PlayerInventory.ContainsKey ("can")) {DataStore.PlayerInventory.Add ("can", 0);}
 		if (!DataStore.PlayerInventory.ContainsKey ("bottle")) {DataStore.PlayerInventory.Add ("bottle", 0);}
 		if (!DataStore.PlayerInventory.ContainsKey ("paper")) {DataStore.PlayerInventory.Add ("paper", 0);}
-		
+		*/
 	}
 
 
@@ -46,14 +47,21 @@ public class SaveCheckpointScript : MonoBehaviour {
 
 
 
-		//save player inventory
+		//save player inventory to DataStore (internal)
 
 		DataStore.PlayerInventory ["can"] = Inventory.can;
 		DataStore.PlayerInventory ["bottle"] = Inventory.bottle;
 		DataStore.PlayerInventory ["paper"] = Inventory.paper;
-
-
 		print ("progress saved!");
+
+
+		//save player all data to File (external)
+		DataStore.DT.SaveToFile ();
+
+		/*
+		print ("this is from a file:");
+		print (DataStore.DT.LoadData ("testfile"));
+*/
 
 	}
 

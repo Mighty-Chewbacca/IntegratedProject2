@@ -9,6 +9,9 @@ public class MenuScript : MonoBehaviour
 	void Start ()
 	{
 		currentMenu = "Main";
+
+		DataStore.DT.ResetPlayer ();
+
 	}
 
 	void OnGUI()
@@ -46,7 +49,13 @@ public class MenuScript : MonoBehaviour
 			Navigate("Credits");
 		}
 
-		if(GUI.Button (new Rect(20, 100, 100, 20),"Exit"))
+		if(GUI.Button (new Rect(20, 100, 100, 20),"Load From File"))
+		{
+			DataStore.DT.LoadFromFile();
+
+		}
+
+		if(GUI.Button (new Rect(20, 130, 100, 20),"Exit"))
 		{
 			Application.Quit();
 		}

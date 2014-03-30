@@ -11,7 +11,7 @@ public class HubLoadStuff : MonoBehaviour {
         //load data from external file
         //Debug.Log("load methood begins");
 
-        DataStore.DT.PlayerProgress = (string)DataStore.DT.LoadData("PlayerProgress");
+        //DataStore.DT.PlayerProgress = (string)DataStore.DT.LoadData("PlayerProgress");
         Debug.Log(DataStore.DT.PlayerProgress);
         //Debug.Log("load methood ended");	
 	}
