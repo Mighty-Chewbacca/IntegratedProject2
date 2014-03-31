@@ -22,10 +22,12 @@ public class AttackScript : MonoBehaviour
 
 	// Update is called once per frame
 	void Update () 
-	{		
-		FindInput();
-        RotateArm();
-
+	{
+        if (Time.timeScale != 0)
+        {
+            FindInput();
+            RotateArm();
+        }
 	}
 
 	void FindInput ()
