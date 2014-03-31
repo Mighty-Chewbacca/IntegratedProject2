@@ -41,12 +41,48 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("Clyde(HUB)")) { DataStore.NPCText.Add("Clyde(HUB)", "Click me then a worker to build!"); }
         if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Collect all trash to unlock door"); }
         if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "'T' to go back to level 1"); }
-        if (!DataStore.NPCText.ContainsKey("Builder")) { DataStore.NPCText.Add("Builder", "Click me to upgrade houses"); }
-        if (!DataStore.NPCText.ContainsKey("Gardener")) { DataStore.NPCText.Add("Gardener", "click me to upgrade gardens"); }
-        if (!DataStore.NPCText.ContainsKey("Decorator")) { DataStore.NPCText.Add("Decorator", "click me to upgrade decorations"); }
+
+        // Builder chats
+        #region Builder
+        if (!DataStore.NPCText.ContainsKey("Builder0")) { DataStore.NPCText.Add("Builder0", "click me to upgrade the Houses"); }
+        if (!DataStore.NPCText.ContainsKey("Builder1")) { DataStore.NPCText.Add("Builder1", "It will cost you 5 Bottles and paper!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder2")) { DataStore.NPCText.Add("Builder2", "Are you sure?"); }
+        if (!DataStore.NPCText.ContainsKey("Builder3")) { DataStore.NPCText.Add("Builder3", "Congratulations, the Houses have begun building!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder4")) { DataStore.NPCText.Add("Builder4", "Sorry, you dont have enough Bottles or Paper!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder5")) { DataStore.NPCText.Add("Builder5", "It's okay, you just need to find more!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder6")) { DataStore.NPCText.Add("Builder6", "Come back when you get it!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder7")) { DataStore.NPCText.Add("Builder7", "Do you want to finish the houses?"); }
+        if (!DataStore.NPCText.ContainsKey("Builder8")) { DataStore.NPCText.Add("Builder8", "It will cost you 5 Bottles and paper!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder9")) { DataStore.NPCText.Add("Builder9", "Are you sure?"); }
+        if (!DataStore.NPCText.ContainsKey("Builder10")) { DataStore.NPCText.Add("Builder10", "Congratulations, the Houses have been finished!"); }
+        #endregion
+
+        // gardener chats
+        #region Gardener
+        if (!DataStore.NPCText.ContainsKey("Gardener0")) { DataStore.NPCText.Add("Gardener0", "click me to upgrade the gardens"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener1")) { DataStore.NPCText.Add("Gardener1", "It will cost you 5 Bottles"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener2")) { DataStore.NPCText.Add("Gardener2", "Are you sure?"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener3")) { DataStore.NPCText.Add("Gardener3", "Congratulations, the Gardens are done!"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener4")) { DataStore.NPCText.Add("Gardener4", "Sorry, you dont have enough Bottles!"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener5")) { DataStore.NPCText.Add("Gardener5", "It's okay, you just need to find more!"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener6")) { DataStore.NPCText.Add("Gardener6", "Come back when you get it!"); }
+        #endregion
+
+        // decorator chats
+        #region Decorator
+        if (!DataStore.NPCText.ContainsKey("Decorator0")) { DataStore.NPCText.Add("Decorator0", "click me to upgrade decorations"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator1")) { DataStore.NPCText.Add("Decorator1", "It will cost you 5 Paper"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator2")) { DataStore.NPCText.Add("Decorator2", "Are you sure?"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator3")) { DataStore.NPCText.Add("Decorator3", "Congratulations, the decorations are done!"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator4")) { DataStore.NPCText.Add("Decorator4", "Sorry, you dont have enough Paper!"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator5")) { DataStore.NPCText.Add("Decorator5", "It's okay, you just need to find more!"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator6")) { DataStore.NPCText.Add("Decorator6", "Come back when you get it!"); }
+        #endregion
+
         if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
 		if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
-		//set main chamera for tracking
+
+        //set main chamera for tracking
 		MyCamera = GameObject.Find("Main Camera");
 		target = this.gameObject.transform;
 		//assign global skin from DT

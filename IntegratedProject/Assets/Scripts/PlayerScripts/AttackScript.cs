@@ -47,8 +47,7 @@ public class AttackScript : MonoBehaviour
 	{
 		tempVector = Quaternion.AngleAxis(8f, Vector3.up) * inputRotation;
 		tempVector = (transform.position + (tempVector.normalized * 0.8f));
-		//Instantiate(ptrScriptVariable.objBullet, tempVector, Quaternion.LookRotation(inputRotation) ); // create a bullet, and rotate it based on the vector inputRotation
-		Instantiate(objBullet, tempVector, Quaternion.LookRotation(inputRotation) );
+		Instantiate(objBullet, tempVector, Quaternion.LookRotation(inputRotation));
 	}
 
     void RotateArm()

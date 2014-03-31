@@ -16,26 +16,24 @@ public class IsClicked : MonoBehaviour {
         canPress = false;
 	}
 
-    void OnMouseDown()
-    {
-        //if(input.GetKeyDown("space")) -- move to update method and use this line
-        if (canPress == true && playerInRange == true)
-        {
-            MyBuilding.currentSprite++;
-            canPress = false;
-        }
-
-    }
-
     void Update()
     {
         distance = Vector2.Distance(player.transform.position, button.transform.position);
-
         if (distance < 2)
         {
-            test++;
-            playerInRange = true;
+                test++;
+                playerInRange = true;
         }
         else playerInRange = false;
+
+        if (canPress == true && playerInRange == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                MyBuilding.currentSprite++;
+                canPress = false;
+            }
+        }
+
     }
 }

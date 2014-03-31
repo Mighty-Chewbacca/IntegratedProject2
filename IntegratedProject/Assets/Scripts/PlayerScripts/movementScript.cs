@@ -42,6 +42,14 @@ public class movementScript : MonoBehaviour
 		charAnimation = GetComponent<Animator> ();
 		
 	}
+
+    void Update()
+    {
+        //if (grounded)
+        //    charAnimation.SetBool("Grounded", true);
+        //else
+        //    charAnimation.SetBool("Grounded", false);
+    }
 	
 	
 	
@@ -79,22 +87,17 @@ public class movementScript : MonoBehaviour
 		{
 
 			grounded = true;
-			
 		}
 
-		if (!isLifting){
-		
-			if((grounded) && (Input.GetKey(KeyCode.Space)))
-			{
-				grounded = false;
-				charAnimation.SetBool("Grounded", false);
-				rigidbody2D.AddForce(new Vector2 (0, jumpforce));
-			}
-		}
-		
-		
-		
-		
+        if (!isLifting)
+        {
+
+            if ((grounded) && (Input.GetKey(KeyCode.Space)))
+            {
+                grounded = false;
+                rigidbody2D.AddForce(new Vector2(0, jumpforce));
+            }
+        }	
 	}
 	
 	void FlipFacing()
@@ -104,6 +107,4 @@ public class movementScript : MonoBehaviour
 		charScale.x *= -1;
 		transform.localScale = charScale;
 	}
-	
-	
 }
