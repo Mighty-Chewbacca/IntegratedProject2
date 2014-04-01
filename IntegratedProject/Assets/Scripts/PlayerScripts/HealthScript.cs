@@ -10,7 +10,7 @@ public class HealthScript : MonoBehaviour
 	public float timeBetweenDamage = 1.0f;
     private int damage;
 	private bool damageCalled = false;
-
+    public SoundScript player;
 	Animator charAnimation;
 
 	void Start () 
@@ -23,9 +23,6 @@ public class HealthScript : MonoBehaviour
 			if (!DataStore.PlayerInventory.ContainsKey ("can")) {DataStore.PlayerInventory.Add ("can", 0);}
 			if (!DataStore.PlayerInventory.ContainsKey ("bottle")) {DataStore.PlayerInventory.Add ("bottle", 0);}
 			if (!DataStore.PlayerInventory.ContainsKey ("paper")) {DataStore.PlayerInventory.Add ("paper", 0);}
-			
-	
-
 	}
 
 
@@ -97,6 +94,7 @@ public class HealthScript : MonoBehaviour
         if (health == 0)
         {
             Death();
+            player.au_death.Play();
         }
 	}
 }

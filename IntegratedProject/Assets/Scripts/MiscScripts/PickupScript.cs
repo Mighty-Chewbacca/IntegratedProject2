@@ -5,7 +5,7 @@ public class PickupScript : MonoBehaviour
 {
 	//public Inventory playerInv;
 	public HealthScript playersHealth;
-	
+    public SoundScript player;
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -14,6 +14,7 @@ public class PickupScript : MonoBehaviour
 			print("can got");
 			Inventory.can ++;
 			gameObject.SetActive(false);
+            player.au_pickup.Play();
 		}
 		
 		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Bottle")
@@ -21,6 +22,7 @@ public class PickupScript : MonoBehaviour
 			print("can got");
 			Inventory.bottle++;
 			gameObject.SetActive(false);
+            player.au_pickup.Play();
 		}
 		
 		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Paper")
@@ -28,6 +30,7 @@ public class PickupScript : MonoBehaviour
 			print("paper got");
 			Inventory.paper++;
 			gameObject.SetActive(false);
+            player.au_pickup.Play();
 		}
 
 		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Apple")
@@ -35,6 +38,7 @@ public class PickupScript : MonoBehaviour
 			print("Apple got");
 			playersHealth.health++;
 			gameObject.SetActive(false);
+            player.au_pickup.Play();
 		}
 	}
 }
