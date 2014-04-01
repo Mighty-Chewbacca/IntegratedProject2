@@ -38,9 +38,22 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("EnemySign")) { DataStore.NPCText.Add("EnemySign", "This wee guy takes off 1 heart!"); }
         if (!DataStore.NPCText.ContainsKey("AttackSign")) { DataStore.NPCText.Add("AttackSign", "Click the mouse to attack!"); }
         if (!DataStore.NPCText.ContainsKey("Clyde")) { DataStore.NPCText.Add("Clyde", "Press T to finish the game!"); }
-        if (!DataStore.NPCText.ContainsKey("Clyde(HUB)")) { DataStore.NPCText.Add("Clyde(HUB)", "Click me then a worker to build!"); }
+        
         if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Collect all trash to unlock door"); }
         if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "'T' to go back to level 1"); }
+
+        //clyde in hub chats
+        #region Clyde(hub)
+        if (!DataStore.NPCText.ContainsKey("ClydeH0")) { DataStore.NPCText.Add("ClydeH0", "Hi there"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH1")) { DataStore.NPCText.Add("ClydeH1", "Welcome to the athletes village!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH2")) { DataStore.NPCText.Add("ClydeH2", "Its not really done yet though"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH3")) { DataStore.NPCText.Add("ClydeH3", "Could you help me finish it?"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH4")) { DataStore.NPCText.Add("ClydeH4", "Thank you! we really need to look the best"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH5")) { DataStore.NPCText.Add("ClydeH5", "the CommonWealth games are coming soon!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH6")) { DataStore.NPCText.Add("ClydeH6", "Collect recycling for the workers"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH7")) { DataStore.NPCText.Add("ClydeH7", "talk to them and they will get to work!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeH8")) { DataStore.NPCText.Add("ClydeH8", "Together we can leave a lasting legacy!"); }
+        #endregion
 
         // Builder chats
         #region Builder

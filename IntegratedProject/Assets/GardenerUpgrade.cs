@@ -32,7 +32,10 @@ public class GardenerUpgrade : MonoBehaviour
         else
         {
             playerInRange = false;
-            chatValue = 0;
+
+            if (chatValue == 3)
+                chatValue = 3;
+            else chatValue = 0;
         }
 
         if (playerInRange == true)
