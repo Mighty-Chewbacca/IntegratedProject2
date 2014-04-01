@@ -104,7 +104,7 @@ public class DecoratorUpgrade : MonoBehaviour
                 if (Inventory.paper >= 5)
                 {
                     MyBuilding.currentSprite++;
-                    Inventory.paper =- 5;
+                    Inventory.paper -= 5;
                     chatValue = 3;
                 }
 

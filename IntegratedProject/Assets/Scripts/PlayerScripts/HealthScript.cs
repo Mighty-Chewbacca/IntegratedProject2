@@ -33,7 +33,7 @@ public class HealthScript : MonoBehaviour
 	{
         health = 4;
 		//spawn player back to the last checkpoint position
-		GameObject.Find ("char").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
+		GameObject.Find ("Player").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
 
 		//load back the inventory
 

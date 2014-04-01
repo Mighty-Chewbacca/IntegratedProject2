@@ -11,9 +11,9 @@ public class TeleportToHubScript : MonoBehaviour
 	void Update () 
     {
         distance = Vector2.Distance(player.transform.position, thisObject.transform.position);
-        if (Input.GetKeyDown(KeyCode.T) && distance < 2)
+        if (Input.GetKeyDown(KeyCode.E) && distance < 2)
         {
-            Application.LoadLevel(0);
+            Application.LoadLevel(2);
         }
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClydeChat : MonoBehaviour
+public class KeyMasterChat : MonoBehaviour
 {
     public bool playerInRange;
     public GameObject player;
@@ -15,7 +15,7 @@ public class ClydeChat : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.name = "ClydeH0";
+        this.name = "KeyMaster0";
         myskin = DataStore.DT.skin;
     }
 
@@ -55,39 +55,35 @@ public class ClydeChat : MonoBehaviour
     {
         if (chatValue == 0)
         {
-            this.name = "ClydeH0";
+            this.name = "KeyMaster0";
         }
         if (chatValue == 1)
         {
-            this.name = "ClydeH1";
+            this.name = "KeyMaster1";
         }
         if (chatValue == 2)
         {
-            this.name = "ClydeH2";
+            this.name = "KeyMaster2";
         }
         if (chatValue == 3)
         {
-            this.name = "ClydeH3";
+            this.name = "KeyMaster3";
         }
         if (chatValue == 4)
         {
-            this.name = "ClydeH4";
+            this.name = "KeyMaster4";
         }
         if (chatValue == 5)
         {
-            this.name = "ClydeH5";
+            this.name = "KeyMaster5";
         }
         if (chatValue == 6)
         {
-            this.name = "ClydeH6";
+            this.name = "KeyMaster6";
         }
         if (chatValue == 7)
         {
-            this.name = "ClydeH7";
-        }
-        if (chatValue == 8)
-        {
-            this.name = "ClydeH8";
+            this.name = "KeyMaster7";
         }
     }
 
@@ -98,52 +94,52 @@ public class ClydeChat : MonoBehaviour
 
         if (chatValue == 1 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Thanks"))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Hello"))
             {
                 chatValue = 2;
             }
         }
         if (chatValue == 2 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Really?"))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "..."))
             {
-                    chatValue = 3;
+                chatValue = 3;
             }
         }
-
         if (chatValue == 3 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes!"))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes"))
             {
-                chatValue = 4;
+                if (Inventory.can >= 5)
+                {
+                    Inventory.can -= 5;
+                    Inventory.keys++;
+                    chatValue = 4;
+                }
+
+                if (Inventory.can < 5)
+                {
+                    chatValue = 6;
+                }
+            }
+
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 200), 200, 60), "No"))
+            {
+                chatValue = 0;
             }
         }
         if (chatValue == 4 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "..."))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Okay Thanks!"))
             {
                 chatValue = 5;
             }
         }
-        if (chatValue == 5 && playerInRange)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "..."))
-            {
-                chatValue = 6;
-            }
-        }
         if (chatValue == 6 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Okay"))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "I'll go get some!"))
             {
                 chatValue = 7;
-            }
-        }
-        if (chatValue == 7 && playerInRange)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Let's Go!"))
-            {
-                chatValue = 8;
             }
         }
     }

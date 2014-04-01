@@ -5,7 +5,7 @@ public class DoorScript : MonoBehaviour
 {
 
     //public Inventory playersInv;
-    public GameObject player, thisObject;
+    public GameObject player;
     public float distance;
     public bool doorLocked;
 
@@ -18,18 +18,23 @@ public class DoorScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        distance = Vector2.Distance(player.transform.position, thisObject.transform.position);
+        distance = Vector2.Distance(player.transform.position, this.transform.position);
 
-		if (distance < 2 && (Inventory.can == 3 && Inventory.bottle == 2 && Inventory.paper == 2))
+		if (distance < 2 && (Inventory.keys >= 1))
         {
-            doorLocked = false;
-            Unlock();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Inventory.keys--;
+                doorLocked = false;
+                Unlock();
+            }
         }
 	
 	}
 
     void Unlock()
     {
-        thisObject.SetActive(false);
+        this.collider2D.enabled = false;
+        //change sprite to open door
     }
 }

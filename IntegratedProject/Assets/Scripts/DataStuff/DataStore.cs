@@ -23,7 +23,7 @@ public class DataStore : MonoBehaviour
 
 	public string PlayerProgress = "almost done";
 	public int NPCCount;
-	public string checkpoint = "MoveSign";
+	public string checkpoint = "CheckPoint1";
 
 
 	public static Dictionary<string,string> NPCText = new Dictionary<string,string>();

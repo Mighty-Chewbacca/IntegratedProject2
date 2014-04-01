@@ -104,7 +104,7 @@ public class GardenerUpgrade : MonoBehaviour
                 if (Inventory.bottle >= 5)
                 {
                     MyBuilding.currentSprite++;
-                    Inventory.bottle = -5;
+                    Inventory.bottle -= 5;
                     chatValue = 3;
                 }
 

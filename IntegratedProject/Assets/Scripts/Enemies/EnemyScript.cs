@@ -10,7 +10,7 @@ public class EnemyScript : MonoBehaviour
 	public float timeBetweenDamage = 1.5f; // the amount of time for which the enemy is invulnerable after being attacked
 	private bool moveCycle;
 	private bool damageCalled = false;
-    private int jumpforce = 250;
+    public int jumpforce = 250;
 
 	// Use this for initialization
 	void Start () 

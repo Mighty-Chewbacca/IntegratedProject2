@@ -37,10 +37,32 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("PickupsSign")) { DataStore.NPCText.Add("PickupsSign", "You should pick up all rubbish!"); }
         if (!DataStore.NPCText.ContainsKey("EnemySign")) { DataStore.NPCText.Add("EnemySign", "This wee guy takes off 1 heart!"); }
         if (!DataStore.NPCText.ContainsKey("AttackSign")) { DataStore.NPCText.Add("AttackSign", "Click the mouse to attack!"); }
+        if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Get a key to unlock the door!"); }
+        if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "'E' to go back to level 1"); }
+        if (!DataStore.NPCText.ContainsKey("FruitSign")) { DataStore.NPCText.Add("FruitSign", "This Fruit can heal you!"); }
+        if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
+		if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
         if (!DataStore.NPCText.ContainsKey("Clyde")) { DataStore.NPCText.Add("Clyde", "Press T to finish the game!"); }
-        
-        if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Collect all trash to unlock door"); }
-        if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "'T' to go back to level 1"); }
+
+
+        //chat for the sign that teaches how to unlock a door
+        #region doorUnlock
+        if (!DataStore.NPCText.ContainsKey("DoorSign0")) { DataStore.NPCText.Add("DoorSign0", "Get a key to unlock the door!"); }
+        if (!DataStore.NPCText.ContainsKey("DoorSign1")) { DataStore.NPCText.Add("DoorSign1", "You can get a key from the HUB"); }
+        #endregion
+
+        // chat for keymaster in hub
+        #region keymaster
+        if (!DataStore.NPCText.ContainsKey("KeyMaster0")) { DataStore.NPCText.Add("KeyMaster0", "Hi there, I'm the Keyman!"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster1")) { DataStore.NPCText.Add("KeyMaster1", "I make you keys from cans"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster2")) { DataStore.NPCText.Add("KeyMaster2", "A key will cost you 5 cans!"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster3")) { DataStore.NPCText.Add("KeyMaster3", "would you like one?"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster4")) { DataStore.NPCText.Add("KeyMaster4", "Thank you!"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster5")) { DataStore.NPCText.Add("KeyMaster5", "All recycling helps the city"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster6")) { DataStore.NPCText.Add("KeyMaster6", "You dont have enough cans"); }
+        if (!DataStore.NPCText.ContainsKey("KeyMaster7")) { DataStore.NPCText.Add("KeyMaster7", "Come back later!"); }
+
+        #endregion
 
         //clyde in hub chats
         #region Clyde(hub)
@@ -53,26 +75,24 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("ClydeH6")) { DataStore.NPCText.Add("ClydeH6", "Collect recycling for the workers"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH7")) { DataStore.NPCText.Add("ClydeH7", "talk to them and they will get to work!"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH8")) { DataStore.NPCText.Add("ClydeH8", "Together we can leave a lasting legacy!"); }
+        
         #endregion
 
         // Builder chats
         #region Builder
-        if (!DataStore.NPCText.ContainsKey("Builder0")) { DataStore.NPCText.Add("Builder0", "click me to upgrade the Houses"); }
+        if (!DataStore.NPCText.ContainsKey("Builder0")) { DataStore.NPCText.Add("Builder0", "Talk to me to upgrade the Houses"); }
         if (!DataStore.NPCText.ContainsKey("Builder1")) { DataStore.NPCText.Add("Builder1", "It will cost you 5 Bottles and paper!"); }
         if (!DataStore.NPCText.ContainsKey("Builder2")) { DataStore.NPCText.Add("Builder2", "Are you sure?"); }
-        if (!DataStore.NPCText.ContainsKey("Builder3")) { DataStore.NPCText.Add("Builder3", "Congratulations, the Houses have begun building!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder3")) { DataStore.NPCText.Add("Builder3", "Congratulations you have helped me build them!"); }
         if (!DataStore.NPCText.ContainsKey("Builder4")) { DataStore.NPCText.Add("Builder4", "Sorry, you dont have enough Bottles or Paper!"); }
         if (!DataStore.NPCText.ContainsKey("Builder5")) { DataStore.NPCText.Add("Builder5", "It's okay, you just need to find more!"); }
         if (!DataStore.NPCText.ContainsKey("Builder6")) { DataStore.NPCText.Add("Builder6", "Come back when you get it!"); }
-        if (!DataStore.NPCText.ContainsKey("Builder7")) { DataStore.NPCText.Add("Builder7", "Do you want to finish the houses?"); }
-        if (!DataStore.NPCText.ContainsKey("Builder8")) { DataStore.NPCText.Add("Builder8", "It will cost you 5 Bottles and paper!"); }
-        if (!DataStore.NPCText.ContainsKey("Builder9")) { DataStore.NPCText.Add("Builder9", "Are you sure?"); }
-        if (!DataStore.NPCText.ContainsKey("Builder10")) { DataStore.NPCText.Add("Builder10", "Congratulations, the Houses have been finished!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder7")) { DataStore.NPCText.Add("Builder7", "The houses are already finished!"); }
         #endregion
 
         // gardener chats
         #region Gardener
-        if (!DataStore.NPCText.ContainsKey("Gardener0")) { DataStore.NPCText.Add("Gardener0", "click me to upgrade the gardens"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener0")) { DataStore.NPCText.Add("Gardener0", "Talk to me to upgrade the gardens"); }
         if (!DataStore.NPCText.ContainsKey("Gardener1")) { DataStore.NPCText.Add("Gardener1", "It will cost you 5 Bottles"); }
         if (!DataStore.NPCText.ContainsKey("Gardener2")) { DataStore.NPCText.Add("Gardener2", "Are you sure?"); }
         if (!DataStore.NPCText.ContainsKey("Gardener3")) { DataStore.NPCText.Add("Gardener3", "Congratulations, the Gardens are done!"); }
@@ -83,7 +103,7 @@ public class TextDisplayScript : MonoBehaviour {
 
         // decorator chats
         #region Decorator
-        if (!DataStore.NPCText.ContainsKey("Decorator0")) { DataStore.NPCText.Add("Decorator0", "click me to upgrade decorations"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator0")) { DataStore.NPCText.Add("Decorator0", "Talk to me to upgrade decorations"); }
         if (!DataStore.NPCText.ContainsKey("Decorator1")) { DataStore.NPCText.Add("Decorator1", "It will cost you 5 Paper"); }
         if (!DataStore.NPCText.ContainsKey("Decorator2")) { DataStore.NPCText.Add("Decorator2", "Are you sure?"); }
         if (!DataStore.NPCText.ContainsKey("Decorator3")) { DataStore.NPCText.Add("Decorator3", "Congratulations, the decorations are done!"); }
@@ -92,9 +112,7 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("Decorator6")) { DataStore.NPCText.Add("Decorator6", "Come back when you get it!"); }
         #endregion
 
-        if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
-		if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
-
+        
         //set main chamera for tracking
 		MyCamera = GameObject.Find("Main Camera");
 		target = this.gameObject.transform;

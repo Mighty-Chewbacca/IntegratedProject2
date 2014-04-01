@@ -3,10 +3,9 @@ using System.Collections;
 
 public class UIScript : MonoBehaviour
 {
-	public Texture2D heart, emptyHeart, can, bottle, paper;
-	//public Inventory playersInv;
+	public Texture2D heart, emptyHeart, can, bottle, paper, key;
 	public HealthScript playersHealth;
-	public GameObject canText, bottleText, paperText;
+	public GameObject canText, bottleText, paperText, keyText;
     public int screenHeight, screenWidth;
 
 
@@ -24,6 +23,7 @@ public class UIScript : MonoBehaviour
 		canText.guiText.text = " " + Inventory.can;
 		bottleText.guiText.text = " " + Inventory.bottle;
 		paperText.guiText.text = " " + Inventory.paper;
+        keyText.guiText.text = " " + Inventory.keys;
 		
 	}
 	
@@ -40,6 +40,7 @@ public class UIScript : MonoBehaviour
 		GUI.DrawTexture(new Rect((screenWidth - 280), 10, 40, 40), can, ScaleMode.StretchToFill, true, 10.0F);
 		GUI.DrawTexture(new Rect((screenWidth - 200), 10, 60, 40), bottle, ScaleMode.StretchToFill, true, 10.0F);
 		GUI.DrawTexture(new Rect((screenWidth - 100), 10, 60, 40), paper, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 360), 10, 60, 40), key, ScaleMode.StretchToFill, true, 10.0F);
     }
 
     void DrawHealth()

@@ -30,9 +30,9 @@ public class PickupScript : MonoBehaviour
 			gameObject.SetActive(false);
 		}
 
-		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Cherry")
+		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Apple")
 		{
-			print("Cherry got");
+			print("Apple got");
 			playersHealth.health++;
 			gameObject.SetActive(false);
 		}

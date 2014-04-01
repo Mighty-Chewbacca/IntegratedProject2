@@ -33,7 +33,6 @@ public class BuilderUpgrade : MonoBehaviour
         else
         {
             playerInRange = false;
-
             if (chatValue == 10)
                 chatValue = 10;
             else chatValue = 0;
@@ -91,30 +90,6 @@ public class BuilderUpgrade : MonoBehaviour
         {
             this.name = "Builder7";
         }
-        if (chatValue == 8)
-        {
-            this.name = "Builder8";
-        }
-        if (chatValue == 9)
-        {
-            this.name = "Builder9";
-        }
-        if (chatValue == 10)
-        {
-            this.name = "Builder10";
-        }
-        if (chatValue == 11)
-        {
-            this.name = "Builder11";
-        }
-        if (chatValue == 12)
-        {
-            this.name = "Builder12";
-        }
-        if (chatValue == 13)
-        {
-            this.name = "Builder13";
-        }
     }
 
     //displays the buttons for moving forward in the chat
@@ -136,8 +111,8 @@ public class BuilderUpgrade : MonoBehaviour
                 if (Inventory.paper >= 5 && Inventory.bottle >= 5)
                 {
                     MyBuilding.currentSprite++;
-                    Inventory.paper = - 5;
-                    Inventory.bottle = -5;
+                    Inventory.paper -= 5;
+                    Inventory.bottle -= 5;
                     chatValue = 3;
                 }
 
@@ -166,41 +141,9 @@ public class BuilderUpgrade : MonoBehaviour
                 chatValue = 0;
             }
         }
-        if (chatValue == 7 && playerInRange)
+        if (MyBuilding.currentSprite == 2 && playerInRange)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes please!"))
-            {
-                chatValue = 0;
-            }
-        }
-        if (chatValue == 8 && playerInRange)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "okay"))
-            {
-                chatValue = 0;
-            }
-        }
-        if (chatValue == 9 && playerInRange)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes"))
-            {
-                if (Inventory.paper >= 5 && Inventory.bottle >= 5)
-                {
-                    MyBuilding.currentSprite++;
-                    Inventory.paper = -5;
-                    Inventory.bottle = -5;
-                    chatValue = 10;
-                }
-
-                if (Inventory.paper < 5 || Inventory.bottle < 5)
-                {
-                    chatValue = 4;
-                }
-            }
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "No"))
-            {
-                chatValue = 0;
-            }
+            chatValue = 7;
         }
     }
 }
