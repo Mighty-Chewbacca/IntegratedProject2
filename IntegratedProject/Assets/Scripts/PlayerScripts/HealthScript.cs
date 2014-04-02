@@ -5,7 +5,8 @@ public class HealthScript : MonoBehaviour
 {
 	//comments!!!
 	//This is health!!!!
-	public int health = 4;
+	public static short health = 4;
+	public static short maxHealt = 4;
 	public Texture2D heart;
 	public float timeBetweenDamage = 1.0f;
 
@@ -29,24 +30,7 @@ public class HealthScript : MonoBehaviour
 	}
 
 
-	void LoadLastCheckpoint()
-	{
-		//give back lives
-		health = 4;
 
-		//spawn player back to the last checkpoint position
-		GameObject.Find ("char").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
-
-		//load back the inventory
-
-		Inventory.can = DataStore.PlayerInventory ["can"];
-		Inventory.bottle = DataStore.PlayerInventory ["bottle"];
-		Inventory.paper = DataStore.PlayerInventory ["paper"];
-		
-		
-		print ("progress loaded!");
-
-		}
 
 
 	void Death()
@@ -54,7 +38,8 @@ public class HealthScript : MonoBehaviour
 		Debug.Log("Called Death() Method successfully");
 		charAnimation.SetBool ("Dead", true);
 
-		LoadLastCheckpoint ();
+		SpawnPlayer.SpawnPlayerToLastCheckpoint (true,true);
+		//LoadLastCheckpoint ();
 	}
 
 	void OnCollisionStay2D(Collision2D col)
@@ -124,3 +109,4 @@ public class HealthScript : MonoBehaviour
 		}
 	}
 }
+
