@@ -1,100 +1,112 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthScript : MonoBehaviour 
+public class HealthScript : MonoBehaviour
 {
-	//comments!!!
-	//This is health!!!!
-	public int health = 4;
-	public Texture2D heart;
-	public float timeBetweenDamage = 1.0f;
-    private int damage;
-	private bool damageCalled = false;
-    public SoundScript player;
-	Animator charAnimation;
+    //comments!!!
+    //This is health!!!!
+    public static short health = 4;
+    public static short maxHealt = 4;
+    public Texture2D heart;
+    public float timeBetweenDamage = 1.0f;
 
-	void Start () 
-	{
-		charAnimation = GetComponent<Animator>();
+    private bool damageCalled = false;
 
-			//set up Player Inventory (in case there's no saved data)
-			// first parameter is the name of the object the second is the amount
-			
-			if (!DataStore.PlayerInventory.ContainsKey ("can")) {DataStore.PlayerInventory.Add ("can", 0);}
-			if (!DataStore.PlayerInventory.ContainsKey ("bottle")) {DataStore.PlayerInventory.Add ("bottle", 0);}
-			if (!DataStore.PlayerInventory.ContainsKey ("paper")) {DataStore.PlayerInventory.Add ("paper", 0);}
-	}
+    Animator charAnimation;
 
+    void Start()
+    {
+        charAnimation = GetComponent<Animator>();
 
-	void LoadLastCheckpoint()
-	{
-        health = 4;
-		//spawn player back to the last checkpoint position
-		GameObject.Find ("Player").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
+        //set up Player Inventory (in case there's no saved data)
+        // first parameter is the name of the object the second is the amount
 
-		//load back the inventory
-
-		Inventory.can = DataStore.PlayerInventory ["can"];
-		Inventory.bottle = DataStore.PlayerInventory ["bottle"];
-		Inventory.paper = DataStore.PlayerInventory ["paper"];
-
-		print ("progress loaded!");
-
-		}
+        if (!DataStore.PlayerInventory.ContainsKey("can")) { DataStore.PlayerInventory.Add("can", 0); }
+        if (!DataStore.PlayerInventory.ContainsKey("bottle")) { DataStore.PlayerInventory.Add("bottle", 0); }
+        if (!DataStore.PlayerInventory.ContainsKey("paper")) { DataStore.PlayerInventory.Add("paper", 0); }
 
 
-	void Death()
-	{
-		Debug.Log("Called Death() Method successfully");
-		charAnimation.SetBool ("Dead", true);
 
-		LoadLastCheckpoint ();
-	}
+    }
 
-	void OnCollisionStay2D(Collision2D col)
-	{
-		if (col.collider.tag == "1Damage" && damageCalled == false) 
-		{
-            damage = 1;
-			damageCalled = true; 
-			StartCoroutine(DamageTimer ());
-		}
 
-        if (col.collider.tag == "2Damage" && damageCalled == false)
+
+
+
+    void Death()
+    {
+        Debug.Log("Called Death() Method successfully");
+        charAnimation.SetBool("Dead", true);
+
+        SpawnPlayer.SpawnPlayerToLastCheckpoint(true, true);
+        //LoadLastCheckpoint ();
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.collider.tag == "Enemy" && damageCalled == false)
         {
-            damage = 2;
             damageCalled = true;
             StartCoroutine(DamageTimer());
-        } 
-		else if (col.collider.tag == "death") 
-		{
-			health = 0;
-			Death ();
-		}
-	}
-
-	IEnumerator DamageTimer() 
-	{
-        health = health - damage;
-		yield return new WaitForSeconds (timeBetweenDamage);
-		damageCalled = false;
-	}
-	
-	void Update()
-	{
-		if (health > 4) 
-		{
-			health = 4;
-		}
-		else if (health < 0)
-		{
-			health = 0;
-		}
-
-        if (health == 0)
-        {
-            Death();
-            player.au_death.Play();
         }
-	}
+        else if (col.collider.tag == "death")
+        {
+            health = 0;
+            Death();
+        }
+    }
+
+    IEnumerator DamageTimer()
+    {
+        health--;
+        yield return new WaitForSeconds(timeBetweenDamage);
+        damageCalled = false;
+    }
+
+    void Update()
+    {
+        if (health > 4)
+        {
+            health = 4;
+        }
+        else if (health < 0)
+        {
+            health = 0;
+        }
+    }
+
+    void OnGUI()
+    {
+        switch (health)
+        {
+            case 4:
+                GUI.DrawTexture(new Rect(10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(130, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(190, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                break;
+
+            case 3:
+                GUI.DrawTexture(new Rect(10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(130, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+
+                break;
+
+            case 2:
+                GUI.DrawTexture(new Rect(10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                GUI.DrawTexture(new Rect(70, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+
+                break;
+
+            case 1:
+                GUI.DrawTexture(new Rect(10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
+                break;
+
+            case 0:
+                Death();
+                break;
+        }
+    }
 }
+

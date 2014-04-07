@@ -4,7 +4,6 @@ using System.Collections;
 public class PickupScript : MonoBehaviour
 {
 	//public Inventory playerInv;
-	public HealthScript playersHealth;
     public SoundScript player;
 	
 	void OnTriggerEnter2D(Collider2D other)
@@ -36,7 +35,7 @@ public class PickupScript : MonoBehaviour
 		if (other.gameObject.tag == "Player" && this.gameObject.tag == "Apple")
 		{
 			print("Apple got");
-			playersHealth.health++;
+            HealthScript.health++;
 			gameObject.SetActive(false);
             player.au_pickup.Play();
 		}

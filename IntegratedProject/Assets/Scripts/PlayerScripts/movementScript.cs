@@ -27,8 +27,12 @@ public class movementScript : MonoBehaviour
 	
 	public static RaycastHit2D RHray; 
 	public static RaycastHit2D LHray;
-	
+
+    public static RaycastHit2D RHrayB;
+    public static RaycastHit2D LHrayB;
+
 	public bool isDebug = false;
+    public bool bouncy = false;
 
 	public float move;
 	
@@ -70,8 +74,10 @@ public class movementScript : MonoBehaviour
 		//doing a raycast on the two edges of the player char, to see if it's standing above the ground, in a set disctance
 		RHray = Physics2D.Raycast(new Vector2((transform.position.x + RH),transform.position.y), -Vector2.up,jumperror,1<<8);
 		LHray = Physics2D.Raycast(new Vector2((transform.position.x + LH),transform.position.y), -Vector2.up,jumperror,1<<8);
-		
-		
+
+        RHrayB = Physics2D.Raycast(new Vector2((transform.position.x + RH), transform.position.y), -Vector2.up, jumperror, 1 << 13);
+        LHrayB = Physics2D.Raycast(new Vector2((transform.position.x + LH), transform.position.y), -Vector2.up, jumperror, 1 << 13);
+
 		if (isDebug) {
 			Debug.DrawRay (new Vector2 ((transform.position.x + RH), transform.position.y), -Vector2.up * 10f, Color.red, 0.01f);
 			Debug.DrawRay (new Vector2 ((transform.position.x + LH), transform.position.y), -Vector2.up * 10f, Color.cyan, 0.01f);
@@ -89,6 +95,11 @@ public class movementScript : MonoBehaviour
 			grounded = true;
 		}
 
+        if ((RHrayB) || (LHrayB))
+        {
+            bouncy = true; 
+        }
+
         if (!isLifting)
         {
 
@@ -96,6 +107,13 @@ public class movementScript : MonoBehaviour
             {
                 grounded = false;
                 rigidbody2D.AddForce(new Vector2(0, jumpforce));
+            }
+
+            else if (bouncy)
+            {
+                bouncy = false;
+                charAnimation.SetBool("Grounded", false);
+                rigidbody2D.AddForce(new Vector2(0, jumpforce * 1.5f));
             }
         }	
 	}

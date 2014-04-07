@@ -4,7 +4,6 @@ using System.Collections;
 public class UIScript : MonoBehaviour
 {
 	public Texture2D heart, emptyHeart, can, bottle, paper, key;
-	public HealthScript playersHealth;
 	public GameObject canText, bottleText, paperText, keyText;
     public int screenHeight, screenWidth;
 
@@ -45,7 +44,7 @@ public class UIScript : MonoBehaviour
 
     void DrawHealth()
     {
-        switch (playersHealth.health)
+        switch (HealthScript.health)
         {
             case 4:
                 GUI.DrawTexture(new Rect(10, 10, 60, 60), heart, ScaleMode.StretchToFill, true, 10.0F);
