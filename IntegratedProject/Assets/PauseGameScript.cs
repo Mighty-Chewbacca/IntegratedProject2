@@ -7,6 +7,15 @@ public class PauseGameScript : MonoBehaviour
     int screenWidth = 1024, screenHeight = 768;
     GUISkin mySkin = DataStore.DT.skin;
 
+    void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+        {
+            Time.timeScale = 1;
+            SpawnPlayer.SpawnPlayerToLastCheckpoint(true, true);
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

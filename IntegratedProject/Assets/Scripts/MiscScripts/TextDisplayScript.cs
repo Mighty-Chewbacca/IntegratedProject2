@@ -21,6 +21,9 @@ public class TextDisplayScript : MonoBehaviour {
 	public Transform target;
 	private Vector3 screenPos;
     public int screenHeight;
+    public int screenWidth;
+    private float timeSincelastTouched = 2.0f;
+    bool canTouch = true;
 
 
 
@@ -75,7 +78,7 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("ClydeH6")) { DataStore.NPCText.Add("ClydeH6", "Collect recycling for the workers"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH7")) { DataStore.NPCText.Add("ClydeH7", "talk to them and they will get to work!"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH8")) { DataStore.NPCText.Add("ClydeH8", "Together we can leave a lasting legacy!"); }
-        
+
         #endregion
 
         // Builder chats
@@ -119,6 +122,7 @@ public class TextDisplayScript : MonoBehaviour {
 		//assign global skin from DT
 		myskin = DataStore.DT.skin;
         screenHeight = Screen.height;
+        screenWidth = Screen.width;
 
 	}
 
@@ -129,25 +133,34 @@ public class TextDisplayScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) 
     {
 		//turn on gui display
-        if (other.tag == "Player")
+        if ((other.tag == "Player") && (canTouch))
 		guiEnabled = true;
 	}
 
-	void OnTriggerExit2D(Collider2D other) 
-    {
-		//turn off gui display
-		guiEnabled = false;
+    //void OnTriggerExit2D(Collider2D other) 
+    //{
+    //    //turn off gui display
+    //    guiEnabled = false;
 
-	}
+    //}
 
 	void OnGUI () 
     {		
-		if (guiEnabled)
+		if (guiEnabled == true)
         {
 			//draw gui box
 			GUI.skin = myskin;
 			// 14 pixel width per character including spaces and spec chars
 			GUI.Box (new Rect (screenPos.x, (screenHeight - 500), (DataStore.NPCText[this.gameObject.name].Length*12),100),DataStore.NPCText[this.gameObject.name]);
+            Time.timeScale = 0;
+            canTouch = false;
+
+            if (GUI.Button(new Rect((screenWidth - 225), (screenHeight - 75), 200, 60), "Dismiss"))
+            {
+                Time.timeScale = 1;
+                guiEnabled = false;
+                StartCoroutine(LastTouchTimer());
+            }
 						
 			//print(DataStore.NPCText[this.gameObject.name].Length);
 			//print(GetInstanceID());
@@ -164,4 +177,10 @@ public class TextDisplayScript : MonoBehaviour {
 		//keep tracking the position
         screenPos = MyCamera.camera.WorldToScreenPoint(target.position);
 	}
+
+    IEnumerator LastTouchTimer()
+    {
+        yield return new WaitForSeconds(timeSincelastTouched);
+        canTouch = true;
+    }
 }

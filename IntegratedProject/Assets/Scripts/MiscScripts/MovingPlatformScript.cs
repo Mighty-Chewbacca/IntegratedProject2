@@ -16,6 +16,7 @@ public class MovingPlatformScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+        if (Time.timeScale == 0) return;
 		if (moveCycle == true) 
 		{
 			transform.Translate(Vector3.left * (Time.deltaTime + moveSpeed));

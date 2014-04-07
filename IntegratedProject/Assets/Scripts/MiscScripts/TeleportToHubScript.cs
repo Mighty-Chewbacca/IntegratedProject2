@@ -13,6 +13,7 @@ public class TeleportToHubScript : MonoBehaviour
         distance = Vector2.Distance(player.transform.position, thisObject.transform.position);
         if (Input.GetKeyDown(KeyCode.E) && distance < 2)
         {
+            Time.timeScale = 1;
             Application.LoadLevel(2);
         }
 	}

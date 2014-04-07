@@ -18,10 +18,12 @@ public static void SpawnPlayerToLastCheckpoint(bool doReloadInverntory, bool doR
 		Inventory.can = DataStore.PlayerInventory ["can"];
 		Inventory.bottle = DataStore.PlayerInventory ["bottle"];
 		Inventory.paper = DataStore.PlayerInventory ["paper"];
+        Inventory.keys = DataStore.PlayerInventory["keys"];
 			}
 
 		//spawn player back to the last checkpoint position
-		GameObject.Find ("char").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
+		GameObject.Find ("Player").transform.position = GameObject.Find (DataStore.DT.checkpoint).transform.position;
+        Time.timeScale = 1;
 		
 		print ("progress loaded!");
 		

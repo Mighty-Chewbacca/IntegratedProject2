@@ -24,6 +24,7 @@ public class HealthScript : MonoBehaviour
         if (!DataStore.PlayerInventory.ContainsKey("can")) { DataStore.PlayerInventory.Add("can", 0); }
         if (!DataStore.PlayerInventory.ContainsKey("bottle")) { DataStore.PlayerInventory.Add("bottle", 0); }
         if (!DataStore.PlayerInventory.ContainsKey("paper")) { DataStore.PlayerInventory.Add("paper", 0); }
+        if (!DataStore.PlayerInventory.ContainsKey("keys")) { DataStore.PlayerInventory.Add("keys", 0); }
 
 
 

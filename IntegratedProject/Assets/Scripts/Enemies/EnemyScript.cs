@@ -19,8 +19,10 @@ public class EnemyScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
+	void Update ()
+    {
+        if (Time.timeScale == 0) return;
+
 		if (moveCycle == true) 
 		{
 			transform.Translate(Vector3.left * (Time.deltaTime + moveSpeed));

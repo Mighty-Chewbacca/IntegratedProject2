@@ -14,6 +14,7 @@ public class TeleportToLevel1 : MonoBehaviour
         distance = Vector2.Distance(player.transform.position, this.transform.position);
         if (Input.GetKeyDown(KeyCode.E) && distance < 2)
         {
+            Time.timeScale = 1;
             Application.LoadLevel(1);
         }
 	}

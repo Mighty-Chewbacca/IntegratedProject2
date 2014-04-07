@@ -70,6 +70,7 @@ public class DataStore : MonoBehaviour
         sw.WriteLine(DataStore.PlayerInventory["can"]);
         sw.WriteLine(DataStore.PlayerInventory["bottle"]);
         sw.WriteLine(DataStore.PlayerInventory["paper"]);
+        sw.WriteLine(DataStore.PlayerInventory["keys"]);
 
         //Close the file
         sw.Close();
@@ -88,11 +89,13 @@ public class DataStore : MonoBehaviour
             DataStore.PlayerInventory["can"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["bottle"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["paper"] = short.Parse(reader.ReadLine());
+            DataStore.PlayerInventory["keys"] = short.Parse(reader.ReadLine());
         }
 
         Inventory.can = DataStore.PlayerInventory["can"];
         Inventory.bottle = DataStore.PlayerInventory["bottle"];
         Inventory.paper = DataStore.PlayerInventory["paper"];
+        Inventory.keys = DataStore.PlayerInventory["keys"];
         Debug.Log(DataStore.PlayerInventory["paper"]);
 
     }
@@ -111,12 +114,14 @@ public class DataStore : MonoBehaviour
         DataStore.PlayerInventory["can"] = 0;
         DataStore.PlayerInventory["bottle"] = 0;
         DataStore.PlayerInventory["paper"] = 0;
+        DataStore.PlayerInventory["keys"] = 0;
 
         //sync this with the current inventory
 
         Inventory.can = DataStore.PlayerInventory["can"];
         Inventory.bottle = DataStore.PlayerInventory["bottle"];
         Inventory.paper = DataStore.PlayerInventory["paper"];
+        Inventory.keys = DataStore.PlayerInventory["keys"];
 
 
 

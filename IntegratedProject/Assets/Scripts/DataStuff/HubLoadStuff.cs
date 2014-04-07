@@ -3,16 +3,18 @@ using System.Collections;
 
 public class HubLoadStuff : MonoBehaviour {
 
+   public ChangeSprites houses, gardens, decorations;
+
 	// Use this for initialization
 	void Start () 
     {
-        //load data from the prevoius scene (with inherited object+static class)
-        //Debug.Log(DataStore.DT.PlayerName);
-        //load data from external file
-        //Debug.Log("load methood begins");
 
-        //DataStore.DT.PlayerProgress = (string)DataStore.DT.LoadFromFile("PlayerProgress");
-        //Debug.Log(DataStore.DT.PlayerProgress);
-        //Debug.Log("load methood ended");	
+        if (!DataStore.HUBBuildings.ContainsKey("houses")) { DataStore.HUBBuildings.Add("houses", 0); }
+        if (!DataStore.HUBBuildings.ContainsKey("gardens")) { DataStore.HUBBuildings.Add("gardens", 0); }
+        if (!DataStore.HUBBuildings.ContainsKey("decorations")) { DataStore.HUBBuildings.Add("decorations", 0); }
+
+        houses.currentSprite = DataStore.HUBBuildings["houses"];
+        gardens.currentSprite = DataStore.HUBBuildings["gardens"];
+        decorations.currentSprite = DataStore.HUBBuildings["decorations"];	
 	}
 }
