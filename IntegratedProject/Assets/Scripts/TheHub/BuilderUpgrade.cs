@@ -203,5 +203,6 @@ public class BuilderUpgrade : MonoBehaviour
     void SaveBuildingState()
     {
         DataStore.HUBBuildings["houses"] = MyBuilding.currentSprite;
+        DataStore.DT.SaveToFile();
     }
 }

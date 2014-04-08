@@ -46,12 +46,14 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
 		if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
         if (!DataStore.NPCText.ContainsKey("Clyde")) { DataStore.NPCText.Add("Clyde", "Press T to finish the game!"); }
+        if (!DataStore.NPCText.ContainsKey("HubTeleportSign")) { DataStore.NPCText.Add("HubTeleportSign", "Right Click to go to the HUB!"); }
 
 
         //chat for the sign that teaches how to unlock a door
         #region doorUnlock
-        if (!DataStore.NPCText.ContainsKey("DoorSign0")) { DataStore.NPCText.Add("DoorSign0", "Get a key to unlock the door!"); }
+        if (!DataStore.NPCText.ContainsKey("DoorSign0")) { DataStore.NPCText.Add("DoorSign0", "Use your key to open this!"); }
         if (!DataStore.NPCText.ContainsKey("DoorSign1")) { DataStore.NPCText.Add("DoorSign1", "You can get a key from the HUB"); }
+        if (!DataStore.NPCText.ContainsKey("DoorSign2")) { DataStore.NPCText.Add("DoorSign2", "Press 'action' to open the door"); }
         #endregion
 
         // chat for keymaster in hub
@@ -78,6 +80,22 @@ public class TextDisplayScript : MonoBehaviour {
         if (!DataStore.NPCText.ContainsKey("ClydeH6")) { DataStore.NPCText.Add("ClydeH6", "Collect recycling for the workers"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH7")) { DataStore.NPCText.Add("ClydeH7", "talk to them and they will get to work!"); }
         if (!DataStore.NPCText.ContainsKey("ClydeH8")) { DataStore.NPCText.Add("ClydeH8", "Together we can leave a lasting legacy!"); }
+
+        #endregion
+
+        //clyde in tutorial chats
+        #region Clyde(tutorial)
+        if (!DataStore.NPCText.ContainsKey("ClydeT0")) { DataStore.NPCText.Add("ClydeT0", "Hi there"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT1")) { DataStore.NPCText.Add("ClydeT1", "Congrats on getting through the tutorial!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT2")) { DataStore.NPCText.Add("ClydeT2", "I'm Clyde, the Glasgow 2014 Mascot!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT3")) { DataStore.NPCText.Add("ClydeT3", "I really need your help"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT4")) { DataStore.NPCText.Add("ClydeT4", "Meet me back at the HUB to help me"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT5")) { DataStore.NPCText.Add("ClydeT5", "Oh silly me!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT6")) { DataStore.NPCText.Add("ClydeT6", "The Athletes village is the HUB!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT7")) { DataStore.NPCText.Add("ClydeT7", "Swing by and say high later!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT8")) { DataStore.NPCText.Add("ClydeT8", "Oh before i forget,"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT9")) { DataStore.NPCText.Add("ClydeT9", "Here is your key to continue!"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT10")) { DataStore.NPCText.Add("ClydeT10", "I already gave you your key!"); }
 
         #endregion
 

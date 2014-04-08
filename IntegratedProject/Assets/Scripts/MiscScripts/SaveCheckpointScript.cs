@@ -55,6 +55,7 @@ public class SaveCheckpointScript : MonoBehaviour {
             DataStore.PlayerInventory["bottle"] = Inventory.bottle;
             DataStore.PlayerInventory["paper"] = Inventory.paper;
 
+            DataStore.DT.SaveToFile();
 
             print("progress saved!");
         }

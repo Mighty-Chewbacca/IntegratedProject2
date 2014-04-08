@@ -8,7 +8,9 @@ public class HealthScript : MonoBehaviour
     public static short health = 4;
     public static short maxHealt = 4;
     public Texture2D heart;
-    public float timeBetweenDamage = 1.0f;
+    public float timeBetweenDamage = 1.0f, colourFlashTime = 0.000001f;
+    short damage1 = 1, damage2 = 2;
+    public SpriteRenderer renderer;
 
     private bool damageCalled = false;
 
@@ -25,9 +27,9 @@ public class HealthScript : MonoBehaviour
         if (!DataStore.PlayerInventory.ContainsKey("bottle")) { DataStore.PlayerInventory.Add("bottle", 0); }
         if (!DataStore.PlayerInventory.ContainsKey("paper")) { DataStore.PlayerInventory.Add("paper", 0); }
         if (!DataStore.PlayerInventory.ContainsKey("keys")) { DataStore.PlayerInventory.Add("keys", 0); }
-
-
-
+        if (!DataStore.HUBBuildings.ContainsKey("houses")) { DataStore.HUBBuildings.Add("houses", 0); }
+        if (!DataStore.HUBBuildings.ContainsKey("gardens")) { DataStore.HUBBuildings.Add("gardens", 0); }
+        if (!DataStore.HUBBuildings.ContainsKey("decorations")) { DataStore.HUBBuildings.Add("decorations", 0); }
     }
 
 
@@ -45,21 +47,29 @@ public class HealthScript : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D col)
     {
-        if (col.collider.tag == "Enemy" && damageCalled == false)
+        if (col.collider.tag == "1Damage" && damageCalled == false)
         {
             damageCalled = true;
-            StartCoroutine(DamageTimer());
+            StartCoroutine(DamageTimer(damage1));
         }
-        else if (col.collider.tag == "death")
+        if (col.collider.tag == "2Damage" && damageCalled == false)
+        {
+            damageCalled = true;
+            StartCoroutine(DamageTimer(damage2));
+        }
+        else if (col.collider.tag == "death" && damageCalled == false)
         {
             health = 0;
             Death();
         }
     }
 
-    IEnumerator DamageTimer()
+    IEnumerator DamageTimer(short damage)
     {
-        health--;
+        renderer.color = new Color(255,0,0);
+        //yield return new WaitForSeconds(colourFlashTime);
+        renderer.color = new Color(255, 255, 255);
+        health -= damage;
         yield return new WaitForSeconds(timeBetweenDamage);
         damageCalled = false;
     }

@@ -75,8 +75,8 @@ public class movementScript : MonoBehaviour
 		RHray = Physics2D.Raycast(new Vector2((transform.position.x + RH),transform.position.y), -Vector2.up,jumperror,1<<8);
 		LHray = Physics2D.Raycast(new Vector2((transform.position.x + LH),transform.position.y), -Vector2.up,jumperror,1<<8);
 
-        RHrayB = Physics2D.Raycast(new Vector2((transform.position.x + RH), transform.position.y), -Vector2.up, jumperror, 1 << 13);
-        LHrayB = Physics2D.Raycast(new Vector2((transform.position.x + LH), transform.position.y), -Vector2.up, jumperror, 1 << 13);
+        RHrayB = Physics2D.Raycast(new Vector2((transform.position.x + RH), transform.position.y), -Vector2.up, jumperror, 1 << 14);
+        LHrayB = Physics2D.Raycast(new Vector2((transform.position.x + LH), transform.position.y), -Vector2.up, jumperror, 1 << 14);
 
 		if (isDebug) {
 			Debug.DrawRay (new Vector2 ((transform.position.x + RH), transform.position.y), -Vector2.up * 10f, Color.red, 0.01f);

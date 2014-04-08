@@ -71,6 +71,9 @@ public class DataStore : MonoBehaviour
         sw.WriteLine(DataStore.PlayerInventory["bottle"]);
         sw.WriteLine(DataStore.PlayerInventory["paper"]);
         sw.WriteLine(DataStore.PlayerInventory["keys"]);
+        sw.WriteLine(DataStore.HUBBuildings["gardens"]);
+        sw.WriteLine(DataStore.HUBBuildings["decorations"]);
+        sw.WriteLine(DataStore.HUBBuildings["houses"]);
 
         //Close the file
         sw.Close();
@@ -90,6 +93,9 @@ public class DataStore : MonoBehaviour
             DataStore.PlayerInventory["bottle"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["paper"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["keys"] = short.Parse(reader.ReadLine());
+            DataStore.HUBBuildings["gardens"] = short.Parse(reader.ReadLine());
+            DataStore.HUBBuildings["decorations"] = short.Parse(reader.ReadLine());
+            DataStore.HUBBuildings["houses"] = short.Parse(reader.ReadLine());
         }
 
         Inventory.can = DataStore.PlayerInventory["can"];
@@ -115,6 +121,10 @@ public class DataStore : MonoBehaviour
         DataStore.PlayerInventory["bottle"] = 0;
         DataStore.PlayerInventory["paper"] = 0;
         DataStore.PlayerInventory["keys"] = 0;
+
+        DataStore.HUBBuildings["gardens"] = 0;
+        DataStore.HUBBuildings["houses"] = 0;
+        DataStore.HUBBuildings["decorations"] = 0;
 
         //sync this with the current inventory
 

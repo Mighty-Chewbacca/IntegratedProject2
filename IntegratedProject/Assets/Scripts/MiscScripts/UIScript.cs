@@ -3,27 +3,15 @@ using System.Collections;
 
 public class UIScript : MonoBehaviour
 {
-	public Texture2D heart, emptyHeart, can, bottle, paper, key;
-	public GameObject canText, bottleText, paperText, keyText;
+	public Texture2D heart, emptyHeart, can, bottle, paper, key, BG;
     public int screenHeight, screenWidth;
 
-
-	
 	// Use this for initialization
 	void Start ()
 	{
         screenHeight = Screen.height;
         screenWidth = Screen.width;
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		canText.guiText.text = " " + Inventory.can;
-		bottleText.guiText.text = " " + Inventory.bottle;
-		paperText.guiText.text = " " + Inventory.paper;
-        keyText.guiText.text = " " + Inventory.keys;
-		
+
 	}
 	
     //called once per frame, used to draw ui on screen
@@ -36,10 +24,19 @@ public class UIScript : MonoBehaviour
 
     void DrawUI()
     {
-		GUI.DrawTexture(new Rect((screenWidth - 280), 10, 40, 40), can, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 390), 5, 100, 80), BG, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 285), 5, 60, 80), BG, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 110), 5, 80, 80), BG, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 210), 5, 80, 80), BG, ScaleMode.StretchToFill, true, 10.0F);
+		GUI.DrawTexture(new Rect((screenWidth - 275), 10, 40, 40), can, ScaleMode.StretchToFill, true, 10.0F);
 		GUI.DrawTexture(new Rect((screenWidth - 200), 10, 60, 40), bottle, ScaleMode.StretchToFill, true, 10.0F);
 		GUI.DrawTexture(new Rect((screenWidth - 100), 10, 60, 40), paper, ScaleMode.StretchToFill, true, 10.0F);
-        GUI.DrawTexture(new Rect((screenWidth - 360), 10, 60, 40), key, ScaleMode.StretchToFill, true, 10.0F);
+        GUI.DrawTexture(new Rect((screenWidth - 380), 10, 80, 40), key, ScaleMode.StretchToFill, true, 10.0F);
+
+        GUI.Box(new Rect((screenWidth - 275), 50, 40, 35), "X " + Inventory.can);
+        GUI.Box(new Rect((screenWidth - 200), 50, 40, 35), "X " + Inventory.bottle);
+        GUI.Box(new Rect((screenWidth - 100), 50, 40, 35), "X " + Inventory.paper);
+        GUI.Box(new Rect((screenWidth - 380), 50, 40, 35), "X " + Inventory.keys);
     }
 
     void DrawHealth()

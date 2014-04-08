@@ -8,10 +8,13 @@ public class DoorScript : MonoBehaviour
     public GameObject player;
     public float distance;
     public bool doorLocked;
+    public Sprite open, close;
+    SpriteRenderer myRenderer;
 
 	// Use this for initialization
 	void Start () 
     {
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
         doorLocked = true;
 	}
 	
@@ -22,13 +25,17 @@ public class DoorScript : MonoBehaviour
 
 		if (distance < 2 && (Inventory.keys >= 1))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetMouseButtonDown(1))
             {
                 Inventory.keys--;
                 doorLocked = false;
                 Unlock();
             }
         }
+
+        if (doorLocked)
+            myRenderer.sprite = close;
+        else myRenderer.sprite = open;
 	
 	}
 

@@ -186,5 +186,6 @@ public class DecoratorUpgrade : MonoBehaviour
     void SaveBuildingState()
     {
         DataStore.HUBBuildings["decorations"] = MyBuilding.currentSprite;
+        DataStore.DT.SaveToFile();
     }
 }

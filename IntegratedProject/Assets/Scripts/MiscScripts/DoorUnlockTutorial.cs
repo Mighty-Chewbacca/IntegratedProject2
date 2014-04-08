@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GardenerUpgrade : MonoBehaviour
+public class DoorUnlockTutorial : MonoBehaviour
 {
     private int chatValue = 0;
+    public GUISkin myskin;
     private Vector3 screenPos;
     private int screenWidth = Screen.width;
     private int screenHeight = Screen.height;
-    public GUISkin myskin;
     bool guiEnabled = false;
     private GameObject MyCamera;
     public Transform target;
     private float timeSincelastTouched = 2.0f;
     bool canTouch = true;
-    public ChangeSprites MyBuilding;
 
     // Use this for initialization
     void Start()
     {
-        this.name = "Gardener0";
+        this.name = "DoorSign0";
         myskin = DataStore.DT.skin;
         MyCamera = GameObject.Find("Main Camera");
         target = this.gameObject.transform;
@@ -42,45 +41,20 @@ public class GardenerUpgrade : MonoBehaviour
     {
         if (chatValue == 0)
         {
-            this.name = "Gardener0";
+            this.name = "DoorSign0";
         }
         if (chatValue == 1)
         {
-            this.name = "Gardener1";
-        }
-        if (chatValue == 2)
-        {
-            this.name = "Gardener2";
-        }
-        if (chatValue == 3)
-        {
-            this.name = "Gardener3";
-        }
-        if (chatValue == 4)
-        {
-            this.name = "Gardener4";
-        }
-        if (chatValue == 5)
-        {
-            this.name = "Gardener5";
-        }
-        if (chatValue == 6)
-        {
-            this.name = "Gardener6";
+            this.name = "DoorSign1";
         }
     }
 
-    //displays the buttons for moving forward in the chat
     void OnGUI()
     {
         GUI.skin = myskin;
 
         if (guiEnabled == true)
         {
-            if (MyBuilding.currentSprite == 1)
-            {
-                chatValue = 3;
-            }
             //draw gui box
             GUI.skin = myskin;
             // 14 pixel width per character including spaces and spec chars
@@ -115,63 +89,11 @@ public class GardenerUpgrade : MonoBehaviour
         }
         if (chatValue == 2)
         {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes"))
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Thanks!"))
             {
-                if (Inventory.bottle < 5)
-                {
-                    chatValue = 4;
-                    Chat();
-                }
-
-                if (Inventory.bottle >= 5)
-                {
-                    Inventory.bottle -= 5;
-                    MyBuilding.currentSprite++;
-                    SaveBuildingState();
-                    chatValue = 3;
-                    Chat();
-                }
-            }
-
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 200), 200, 60), "No"))
-            {
-                chatValue = 0;
                 Time.timeScale = 1;
                 guiEnabled = false;
-                Chat();
-                StartCoroutine(LastTouchTimer());
-            }
-        }
-
-        if (chatValue == 4)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Oh Okay"))
-            {
-                chatValue = 5;
-                Chat();
-            }
-        }
-
-        if (chatValue == 5)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Will do"))
-            {
                 chatValue = 0;
-                Time.timeScale = 1;
-                guiEnabled = false;
-                Chat();
-                StartCoroutine(LastTouchTimer());
-            }
-        }
-
-        if (chatValue == 6)
-        {
-            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Thanks"))
-            {
-                chatValue = 0;
-                Time.timeScale = 1;
-                guiEnabled = false;
-                Chat();
                 StartCoroutine(LastTouchTimer());
             }
         }
@@ -181,10 +103,5 @@ public class GardenerUpgrade : MonoBehaviour
     {
         yield return new WaitForSeconds(timeSincelastTouched);
         canTouch = true;
-    }
-
-    void SaveBuildingState()
-    {
-        DataStore.HUBBuildings["gardens"] = MyBuilding.currentSprite;
     }
 }
