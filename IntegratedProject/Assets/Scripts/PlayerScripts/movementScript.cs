@@ -49,12 +49,14 @@ public class movementScript : MonoBehaviour
 
     void Update()
     {
+		charAnimation.SetBool("Grounded", grounded);
+
         //if (grounded)
         //    charAnimation.SetBool("Grounded", true);
         //else
         //    charAnimation.SetBool("Grounded", false);
     }
-	
+
 	
 	
 	// Update is called once per frame
@@ -62,7 +64,13 @@ public class movementScript : MonoBehaviour
 	{
 		// moving the player sideways
 		move = Input.GetAxis("Horizontal");
-		charAnimation.SetFloat ("Speed", Mathf.Abs (move));
+
+		if (move != 0 )
+			charAnimation.SetBool ("IsMoving", true);
+
+		if (move == 0)
+			charAnimation.SetBool("IsMoving" , false);
+
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 		
 		
@@ -89,6 +97,7 @@ public class movementScript : MonoBehaviour
 				Debug.Log (LHray.collider.name);
 			}
 		}
+
 		if (((RHray) ||(LHray)))
 		{
 
@@ -112,7 +121,6 @@ public class movementScript : MonoBehaviour
             else if (bouncy)
             {
                 bouncy = false;
-                charAnimation.SetBool("Grounded", false);
                 rigidbody2D.AddForce(new Vector2(0, jumpforce * 1.5f));
             }
         }	
