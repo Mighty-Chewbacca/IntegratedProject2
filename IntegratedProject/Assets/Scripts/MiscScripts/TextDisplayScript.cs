@@ -173,7 +173,7 @@ public class TextDisplayScript : MonoBehaviour {
             Time.timeScale = 0;
             canTouch = false;
 
-            if (GUI.Button(new Rect((screenWidth - 225), (screenHeight - 75), 200, 60), "Dismiss"))
+            if (Input.GetMouseButtonDown(0))
             {
                 Time.timeScale = 1;
                 guiEnabled = false;
