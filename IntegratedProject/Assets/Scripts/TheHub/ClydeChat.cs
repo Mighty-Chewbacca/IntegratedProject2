@@ -20,7 +20,7 @@ public class ClydeChat : MonoBehaviour
     {
         this.name = "ClydeH0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 

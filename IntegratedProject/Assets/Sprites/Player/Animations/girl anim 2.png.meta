@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a80f7a2bdc8a8ac4d896f63588dc69cf
+guid: b117486002f8cbd42987c5d1b85681cb
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -35,7 +35,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 65
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -45,121 +45,112 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: white bin_0
+    - name: girl anim 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 352
-        width: 85
-        height: 134
+        x: 15
+        y: 486
+        width: 103
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_1
+    - name: girl anim 2_1
       rect:
         serializedVersion: 2
-        x: 95
-        y: 352
-        width: 85
-        height: 131
+        x: 147
+        y: 486
+        width: 96
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_2
+    - name: girl anim 2_2
       rect:
         serializedVersion: 2
-        x: 190
-        y: 352
-        width: 85
-        height: 126
+        x: 280
+        y: 485
+        width: 89
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_3
+    - name: girl anim 2_3
       rect:
         serializedVersion: 2
-        x: 284
-        y: 351
-        width: 86
-        height: 139
+        x: 402
+        y: 489
+        width: 93
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_4
+    - name: girl anim 2_4
       rect:
         serializedVersion: 2
-        x: 380
-        y: 352
-        width: 85
-        height: 146
+        x: 8
+        y: 263
+        width: 108
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_5
+    - name: girl anim 2_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 180
-        width: 85
-        height: 151
+        x: 127
+        y: 278
+        width: 118
+        height: 199
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_6
+    - name: girl anim 2_6
       rect:
         serializedVersion: 2
-        x: 95
-        y: 179
-        width: 85
-        height: 161
+        x: 267
+        y: 253
+        width: 103
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_7
+    - name: girl anim 2_7
       rect:
         serializedVersion: 2
-        x: 188
-        y: 180
-        width: 87
-        height: 154
+        x: 399
+        y: 252
+        width: 95
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_8
+    - name: girl anim 2_8
       rect:
         serializedVersion: 2
-        x: 285
-        y: 180
-        width: 86
-        height: 146
+        x: 27
+        y: 17
+        width: 89
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_9
+    - name: girl anim 2_9
       rect:
         serializedVersion: 2
-        x: 380
-        y: 181
-        width: 86
-        height: 145
+        x: 150
+        y: 21
+        width: 92
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_10
+    - name: girl anim 2_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
-        width: 85
-        height: 116
+        x: 260
+        y: 29
+        width: 108
+        height: 213
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: white bin_11
+    - name: girl anim 2_11
       rect:
         serializedVersion: 2
-        x: 95
-        y: 10
-        width: 85
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
-    - name: white bin_12
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 10
-        width: 85
-        height: 134
+        x: 379
+        y: 43
+        width: 118
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 

@@ -20,7 +20,7 @@ public class GardenerUpgrade : MonoBehaviour
     {
         this.name = "Gardener0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 
@@ -67,6 +67,10 @@ public class GardenerUpgrade : MonoBehaviour
         if (chatValue == 6)
         {
             this.name = "Gardener6";
+        }
+        if (chatValue == 7)
+        {
+            this.name = "Gardener7";
         }
     }
 
@@ -122,8 +126,13 @@ public class GardenerUpgrade : MonoBehaviour
                     chatValue = 4;
                     Chat();
                 }
+                if (Inventory.trowel < 1)
+                {
+                    chatValue = 7;
+                    Chat();
+                }
 
-                if (Inventory.bottle >= 5)
+                if (Inventory.bottle >= 5 && Inventory.trowel > 0)
                 {
                     Inventory.bottle -= 5;
                     MyBuilding.currentSprite++;
@@ -173,6 +182,14 @@ public class GardenerUpgrade : MonoBehaviour
                 guiEnabled = false;
                 Chat();
                 StartCoroutine(LastTouchTimer());
+            }
+        }
+        if (chatValue == 7)
+        {
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Oh Okay"))
+            {
+                chatValue = 5;
+                Chat();
             }
         }
     }

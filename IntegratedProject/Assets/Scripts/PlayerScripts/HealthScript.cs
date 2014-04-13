@@ -10,7 +10,6 @@ public class HealthScript : MonoBehaviour
     public Texture2D heart;
     public float timeBetweenDamage = 1.0f, colourFlashTime = 0.000001f;
     short damage1 = 1, damage2 = 2;
-    public SpriteRenderer renderer;
 
     private bool damageCalled = false;
 
@@ -19,17 +18,6 @@ public class HealthScript : MonoBehaviour
     void Start()
     {
         charAnimation = GetComponent<Animator>();
-
-        //set up Player Inventory (in case there's no saved data)
-        // first parameter is the name of the object the second is the amount
-
-        if (!DataStore.PlayerInventory.ContainsKey("can")) { DataStore.PlayerInventory.Add("can", 0); }
-        if (!DataStore.PlayerInventory.ContainsKey("bottle")) { DataStore.PlayerInventory.Add("bottle", 0); }
-        if (!DataStore.PlayerInventory.ContainsKey("paper")) { DataStore.PlayerInventory.Add("paper", 0); }
-        if (!DataStore.PlayerInventory.ContainsKey("keys")) { DataStore.PlayerInventory.Add("keys", 0); }
-        if (!DataStore.HUBBuildings.ContainsKey("houses")) { DataStore.HUBBuildings.Add("houses", 0); }
-        if (!DataStore.HUBBuildings.ContainsKey("gardens")) { DataStore.HUBBuildings.Add("gardens", 0); }
-        if (!DataStore.HUBBuildings.ContainsKey("decorations")) { DataStore.HUBBuildings.Add("decorations", 0); }
     }
 
 
@@ -66,9 +54,6 @@ public class HealthScript : MonoBehaviour
 
     IEnumerator DamageTimer(short damage)
     {
-        renderer.color = new Color(255,0,0);
-        //yield return new WaitForSeconds(colourFlashTime);
-        renderer.color = new Color(255, 255, 255);
         health -= damage;
         yield return new WaitForSeconds(timeBetweenDamage);
         damageCalled = false;

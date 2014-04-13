@@ -21,7 +21,7 @@ public class ClydeTutChat : MonoBehaviour
     {
         this.name = "ClydeH0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 
@@ -188,7 +188,7 @@ public class ClydeTutChat : MonoBehaviour
             if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "What?"))
             {
                 chatValue = 9;
-                Inventory.keys++;
+                Inventory.keys += 1;
                 keygiven = true;
                 Chat();
             }

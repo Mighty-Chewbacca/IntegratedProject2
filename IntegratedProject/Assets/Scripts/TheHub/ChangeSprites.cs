@@ -4,7 +4,7 @@ using System.Collections;
 public class ChangeSprites : MonoBehaviour 
 {
 	public int currentSprite;
-	public Sprite level1, level2, level3;
+	public Sprite level1, level2;
     public IsClicked MyButton;
 	private SpriteRenderer myRenderer;
 
@@ -30,11 +30,6 @@ public class ChangeSprites : MonoBehaviour
 		{
 			DataStore.HUBBuildings[this.name] = 1;
 			myRenderer.sprite = level2;
-		}
-		if (currentSprite == 2) 
-		{	
-			DataStore.HUBBuildings[this.name] = 2;
-			myRenderer.sprite = level3;
 		}
 	}
 }

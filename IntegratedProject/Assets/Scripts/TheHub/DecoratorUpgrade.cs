@@ -20,7 +20,7 @@ public class DecoratorUpgrade : MonoBehaviour
     {
         this.name = "Decorator0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 
@@ -67,6 +67,10 @@ public class DecoratorUpgrade : MonoBehaviour
         if (chatValue == 6)
         {
             this.name = "Decorator6";
+        }
+        if (chatValue == 7)
+        {
+            this.name = "Decorator7";
         }
     }
 
@@ -123,7 +127,13 @@ public class DecoratorUpgrade : MonoBehaviour
                     Chat();
                 }
 
-                if (Inventory.paper >= 5)
+                if (Inventory.paintbrush < 1)
+                {
+                    chatValue = 7;
+                    Chat();
+                }
+
+                if (Inventory.paper >= 5 && Inventory.paintbrush > 0)
                 {
                     Inventory.paper -= 5;
                     MyBuilding.currentSprite++;
@@ -173,6 +183,14 @@ public class DecoratorUpgrade : MonoBehaviour
                 guiEnabled = false;
                 Chat();
                 StartCoroutine(LastTouchTimer());
+            }
+        }
+        if (chatValue == 7)
+        {
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Oh Okay"))
+            {
+                chatValue = 5;
+                Chat();
             }
         }
     }

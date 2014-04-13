@@ -19,6 +19,9 @@ public static void SpawnPlayerToLastCheckpoint(bool doReloadInverntory, bool doR
 		Inventory.bottle = DataStore.PlayerInventory ["bottle"];
 		Inventory.paper = DataStore.PlayerInventory ["paper"];
         Inventory.keys = DataStore.PlayerInventory["keys"];
+        Inventory.hammer = DataStore.PlayerInventory["hammer"];
+        Inventory.paintbrush = DataStore.PlayerInventory["paintbrush"];
+        Inventory.trowel = DataStore.PlayerInventory["trowel"];
 			}
 
 		//spawn player back to the last checkpoint position

@@ -20,7 +20,7 @@ public class BuilderUpgrade : MonoBehaviour
     {
         this.name = "Builder0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 
@@ -72,6 +72,10 @@ public class BuilderUpgrade : MonoBehaviour
         {
             this.name = "Builder7";
         }
+        if (chatValue == 8)
+        {
+            this.name = "Builder8";
+        }
     }
 
     //displays the buttons for moving forward in the chat
@@ -81,7 +85,7 @@ public class BuilderUpgrade : MonoBehaviour
 
         if (guiEnabled == true)
         {
-            if (MyBuilding.currentSprite == 2)
+            if (MyBuilding.currentSprite == 1)
             {
                 chatValue = 7;
             }
@@ -121,16 +125,20 @@ public class BuilderUpgrade : MonoBehaviour
         {
             if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Yes"))
             {
-                if (Inventory.paper < 5 || Inventory.bottle < 5)
+                if (Inventory.paper < 5)
                 {
                     chatValue = 4;
                     Chat();
                 }
+                if (Inventory.hammer < 1)
+                {
+                    chatValue = 8;
+                    Chat();
+                }
 
-                if (Inventory.paper >= 5 || Inventory.bottle >= 5)
+                if (Inventory.paper >= 5 && Inventory.hammer > 0)
                 {
                     Inventory.paper -= 5;
-                    Inventory.bottle -= 5;
                     MyBuilding.currentSprite++;
                     SaveBuildingState();
                     chatValue = 3;
@@ -190,6 +198,15 @@ public class BuilderUpgrade : MonoBehaviour
                 guiEnabled = false;
                 Chat();
                 StartCoroutine(LastTouchTimer());
+            }
+        }
+
+        if (chatValue == 8)
+        {
+            if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "Oh Okay"))
+            {
+                chatValue = 5;
+                Chat();
             }
         }
     }

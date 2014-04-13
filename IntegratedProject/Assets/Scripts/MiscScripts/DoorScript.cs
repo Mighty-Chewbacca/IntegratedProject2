@@ -14,8 +14,14 @@ public class DoorScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        if (!DataStore.DoorsOpened.ContainsKey("Door1")) { DataStore.DoorsOpened.Add("Door1", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door2")) { DataStore.DoorsOpened.Add("Door2", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door3")) { DataStore.DoorsOpened.Add("Door3", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door4")) { DataStore.DoorsOpened.Add("Door4", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door5")) { DataStore.DoorsOpened.Add("Door5", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door6")) { DataStore.DoorsOpened.Add("Door6", true); }
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
-        doorLocked = true;
+        doorLocked = DataStore.DoorsOpened[this.name];
 	}
 	
 	// Update is called once per frame
@@ -23,25 +29,31 @@ public class DoorScript : MonoBehaviour
     {
         distance = Vector2.Distance(player.transform.position, this.transform.position);
 
-		if (distance < 2 && (Inventory.keys >= 1))
+		if (distance < 2 && (Inventory.keys >= 1) && doorLocked == true)
         {
             if (Input.GetMouseButtonDown(1))
             {
                 Inventory.keys--;
                 doorLocked = false;
-                Unlock();
             }
         }
 
-        if (doorLocked)
+        if (doorLocked == true)
+        {
             myRenderer.sprite = close;
-        else myRenderer.sprite = open;
-	
+        }
+
+        if (doorLocked == false)
+        {
+            Unlock();
+            myRenderer.sprite = open;
+        }
 	}
 
     void Unlock()
     {
         this.collider2D.enabled = false;
-        //change sprite to open door
+        DataStore.DoorsOpened[this.name] = false;
+        DataStore.DT.SaveToFile();
     }
 }

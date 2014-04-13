@@ -19,7 +19,7 @@ public class KeyMasterChat : MonoBehaviour
     {
         this.name = "KeyMaster0";
         myskin = DataStore.DT.skin;
-        MyCamera = GameObject.Find("Main Camera");
+        MyCamera = GameObject.Find("TheCamera");
         target = this.gameObject.transform;
     }
 
@@ -173,7 +173,7 @@ public class KeyMasterChat : MonoBehaviour
         {
             if (GUI.Button(new Rect((screenWidth / 2 - 75), (screenHeight / 2 + 140), 200, 60), "I'll get some!"))
             {
-                chatValue = 7;
+                chatValue = 0;
                 Time.timeScale = 1;
                 guiEnabled = false;
                 Chat();

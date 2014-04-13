@@ -54,6 +54,10 @@ public class SaveCheckpointScript : MonoBehaviour {
             DataStore.PlayerInventory["can"] = Inventory.can;
             DataStore.PlayerInventory["bottle"] = Inventory.bottle;
             DataStore.PlayerInventory["paper"] = Inventory.paper;
+            DataStore.PlayerInventory["keys"] = Inventory.keys;
+            DataStore.PlayerInventory["hammer"] = Inventory.hammer;
+            DataStore.PlayerInventory["trowel"] = Inventory.trowel;
+            DataStore.PlayerInventory["paintbrush"] = Inventory.paintbrush;
 
             DataStore.DT.SaveToFile();
 

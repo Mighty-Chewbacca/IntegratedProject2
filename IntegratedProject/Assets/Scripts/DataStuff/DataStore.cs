@@ -24,6 +24,7 @@ public class DataStore : MonoBehaviour
     public static DataStore DT;
     public GUISkin skin;
     public static Dictionary<string, string> NPCText = new Dictionary<string, string>();
+    public static Dictionary<string, bool> DoorsOpened = new Dictionary<string, bool>();
     public enum Gender { male, female };
 
     //duno' what's this
@@ -71,10 +72,18 @@ public class DataStore : MonoBehaviour
         sw.WriteLine(DataStore.PlayerInventory["bottle"]);
         sw.WriteLine(DataStore.PlayerInventory["paper"]);
         sw.WriteLine(DataStore.PlayerInventory["keys"]);
+        sw.WriteLine(DataStore.PlayerInventory["hammer"]);
+        sw.WriteLine(DataStore.PlayerInventory["paintbrush"]);
+        sw.WriteLine(DataStore.PlayerInventory["trowel"]);
         sw.WriteLine(DataStore.HUBBuildings["gardens"]);
         sw.WriteLine(DataStore.HUBBuildings["decorations"]);
         sw.WriteLine(DataStore.HUBBuildings["houses"]);
-
+        sw.WriteLine(DataStore.DoorsOpened["Door1"]);
+        sw.WriteLine(DataStore.DoorsOpened["Door2"]);
+        sw.WriteLine(DataStore.DoorsOpened["Door3"]);
+        sw.WriteLine(DataStore.DoorsOpened["Door4"]);
+        sw.WriteLine(DataStore.DoorsOpened["Door5"]);
+        sw.WriteLine(DataStore.DoorsOpened["Door6"]);
         //Close the file
         sw.Close();
     }
@@ -93,9 +102,18 @@ public class DataStore : MonoBehaviour
             DataStore.PlayerInventory["bottle"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["paper"] = short.Parse(reader.ReadLine());
             DataStore.PlayerInventory["keys"] = short.Parse(reader.ReadLine());
+            DataStore.PlayerInventory["hammer"] = short.Parse(reader.ReadLine());
+            DataStore.PlayerInventory["paintbrush"] = short.Parse(reader.ReadLine());
+            DataStore.PlayerInventory["trowel"] = short.Parse(reader.ReadLine());
             DataStore.HUBBuildings["gardens"] = short.Parse(reader.ReadLine());
             DataStore.HUBBuildings["decorations"] = short.Parse(reader.ReadLine());
             DataStore.HUBBuildings["houses"] = short.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door1"] = bool.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door2"] = bool.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door3"] = bool.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door4"] = bool.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door5"] = bool.Parse(reader.ReadLine());
+            DataStore.DoorsOpened["Door6"] = bool.Parse(reader.ReadLine());
         }
 
         Inventory.can = DataStore.PlayerInventory["can"];
@@ -121,6 +139,17 @@ public class DataStore : MonoBehaviour
         DataStore.PlayerInventory["bottle"] = 0;
         DataStore.PlayerInventory["paper"] = 0;
         DataStore.PlayerInventory["keys"] = 0;
+        DataStore.PlayerInventory["hammer"] = 0;
+        DataStore.PlayerInventory["trowel"] = 0;
+        DataStore.PlayerInventory["paintbrush"] = 0;
+
+
+        DataStore.DoorsOpened["Door1"] = false;
+        DataStore.DoorsOpened["Door2"] = false;
+        DataStore.DoorsOpened["Door3"] = false;
+        DataStore.DoorsOpened["Door4"] = false;
+        DataStore.DoorsOpened["Door5"] = false;
+        DataStore.DoorsOpened["Door6"] = false;
 
         DataStore.HUBBuildings["gardens"] = 0;
         DataStore.HUBBuildings["houses"] = 0;
@@ -132,6 +161,9 @@ public class DataStore : MonoBehaviour
         Inventory.bottle = DataStore.PlayerInventory["bottle"];
         Inventory.paper = DataStore.PlayerInventory["paper"];
         Inventory.keys = DataStore.PlayerInventory["keys"];
+        Inventory.hammer = DataStore.PlayerInventory["hammer"];
+        Inventory.trowel = DataStore.PlayerInventory["trowel"];
+        Inventory.paintbrush = DataStore.PlayerInventory["paintbrush"];
 
 
 
@@ -183,10 +215,4 @@ public class DataStore : MonoBehaviour
         }
 
     */
-
-
-
-
-
-
 }
