@@ -20,30 +20,20 @@ public class EndGameScript : MonoBehaviour {
         clydeRect = new Rect(10, 50, 190, 356);
 	
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-
-        if (DecoratorUpgrade.decorationsUpgraded == true && GardenerUpgrade.gardensUpgraded == true && BuilderUpgrade.housesUpgraded == true)
-        {
-            Time.timeScale = 0;
-            guiEnabled = true;
-        }
-	
-	}
 
     void OnGUI()
     {
-        GUI.skin = myskin;
-
-        GUI.Box(new Rect(200, 100, 500, 100), DataStore.DT.PlayerName + " Well done you completed the Athletes Village on time!");
-        GUI.DrawTexture(clydeRect, clydesprite, ScaleMode.StretchToFill, true, 10.0F);
-        if (GUI.Button(new Rect((screenWidth - 225), (screenHeight - 75), 200, 60), "End Game"))
+        if (DecoratorUpgrade.decorationsUpgraded == true && GardenerUpgrade.gardensUpgraded == true && BuilderUpgrade.housesUpgraded == true)
         {
-            Time.timeScale = 1;
-            Application.LoadLevel(0);
+            GUI.skin = myskin;
+            Time.timeScale = 0;
+            GUI.Box(new Rect(200, 100, 500, 100), DataStore.DT.PlayerName + " Well done you completed the Athletes Village on time!");
+            GUI.DrawTexture(clydeRect, clydesprite, ScaleMode.StretchToFill, true, 10.0F);
+            if (GUI.Button(new Rect((screenWidth - 225), (screenHeight - 75), 200, 60), "End Game"))
+            {
+                Time.timeScale = 1;
+                Application.LoadLevel(0);
+            }
         }
-
     }
 }
