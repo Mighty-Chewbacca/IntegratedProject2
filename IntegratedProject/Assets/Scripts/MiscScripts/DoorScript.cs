@@ -15,18 +15,13 @@ public class DoorScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        if (!DataStore.DoorsOpened.ContainsKey("Door1")) { DataStore.DoorsOpened.Add("Door1", true); }
-        if (!DataStore.DoorsOpened.ContainsKey("Door2")) { DataStore.DoorsOpened.Add("Door2", true); }
-        if (!DataStore.DoorsOpened.ContainsKey("Door3")) { DataStore.DoorsOpened.Add("Door3", true); }
-        if (!DataStore.DoorsOpened.ContainsKey("Door4")) { DataStore.DoorsOpened.Add("Door4", true); }
-        if (!DataStore.DoorsOpened.ContainsKey("Door5")) { DataStore.DoorsOpened.Add("Door5", true); }
-        if (!DataStore.DoorsOpened.ContainsKey("Door6")) { DataStore.DoorsOpened.Add("Door6", true); }
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //set the doors locked value to that stored in the Dt, loaded from save
         doorLocked = DataStore.DoorsOpened[this.name];
 
+        //audio stuff for door opneing
         AudioClip openSound;
         openSound = (AudioClip)Resources.Load("SFX/openDoor");
-
         au_dooropen = (AudioSource)gameObject.AddComponent("AudioSource");
         au_dooropen.clip = openSound;
         au_dooropen.loop = false;
@@ -35,6 +30,7 @@ public class DoorScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
+        //if player is close enough open door, cant use trigger because it would let the player pass through door
         distance = Vector2.Distance(player.transform.position, this.transform.position);
 
 		if (distance < 2 && (Inventory.keys >= 1) && doorLocked == true)
@@ -47,6 +43,7 @@ public class DoorScript : MonoBehaviour
             }
         }
 
+        //set sprite to correct one depending on door state
         if (doorLocked == true)
         {
             myRenderer.sprite = close;

@@ -91,7 +91,7 @@ public class DecoratorUpgrade : MonoBehaviour
             //draw gui box
             GUI.skin = myskin;
             // 14 pixel width per character including spaces and spec chars
-            GUI.Box(new Rect(screenPos.x, (screenHeight - 500), (DataStore.NPCText[this.gameObject.name].Length * 12), 100), DataStore.NPCText[this.gameObject.name]);
+            GUI.Box(new Rect(screenPos.x, (screenHeight - 500), (DataStore.NPCText[this.gameObject.name].Length * 8), 100), DataStore.NPCText[this.gameObject.name]);
             Time.timeScale = 0;
             canTouch = false;
 

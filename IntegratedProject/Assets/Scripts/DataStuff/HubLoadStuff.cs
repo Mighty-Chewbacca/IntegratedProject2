@@ -6,6 +6,7 @@ public class HubLoadStuff : MonoBehaviour {
    public ChangeSprites houses, gardens, decorations;
 
 	// Use this for initialization
+    //sets the current sprite for the buildings to that of the saved value
 	void Start () 
     {
         houses.currentSprite = DataStore.HUBBuildings["houses"];

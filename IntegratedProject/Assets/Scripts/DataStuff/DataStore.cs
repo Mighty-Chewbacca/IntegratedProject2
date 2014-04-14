@@ -34,7 +34,7 @@ public class DataStore : MonoBehaviour
     //player relevant stuff, needs to be reseted when starting new game
     public int score;
     public string PlayerProgress = "";
-    public string checkpoint = "MoveSign";
+    public string checkpoint = "ClickSign";
     public string PlayerName = "";
     public Gender PlayerGender = Gender.male; //defaults to male
     public static Dictionary<string, short> PlayerInventory = new Dictionary<string, short>();
@@ -60,7 +60,7 @@ public class DataStore : MonoBehaviour
     {
 
         //Pass the filepath and filename to the StreamWriter Constructor
-        StreamWriter sw = new StreamWriter(Application.persistentDataPath + "//" + "SaveGame_1" + ".save");
+        StreamWriter sw = new StreamWriter(Application.persistentDataPath + "//" + "SaveGame_2" + ".save");
 
 
         sw.WriteLine(score);
@@ -91,7 +91,7 @@ public class DataStore : MonoBehaviour
     //load all data back from file	
     public void LoadFromFile()
     {
-        using (TextReader reader = File.OpenText(Application.persistentDataPath + "//" + "SaveGame_1" + ".save"))
+        using (TextReader reader = File.OpenText(Application.persistentDataPath + "//" + "SaveGame_2" + ".save"))
         {
             DataStore.DT.score = int.Parse(reader.ReadLine());
             DataStore.DT.PlayerProgress = reader.ReadLine();
@@ -131,7 +131,7 @@ public class DataStore : MonoBehaviour
 
         DataStore.DT.score = 0;
         DataStore.DT.PlayerProgress = "";
-        DataStore.DT.checkpoint = "MoveSign"; //THIS SHOULD BE CHANGED TO THE VERY FIRST, DEFAULT CHECKPOINT
+        DataStore.DT.checkpoint = "ClickSign"; //THIS SHOULD BE CHANGED TO THE VERY FIRST, DEFAULT CHECKPOINT
         DataStore.DT.PlayerName = "";
         DataStore.DT.PlayerGender = DataStore.Gender.male; //defaults to male
 
@@ -168,7 +168,7 @@ public class DataStore : MonoBehaviour
 
 
     }
-
+    //method used to sync the dt data with the current game state data
    public void SyncDataWithDT()
     {
         DataStore.PlayerInventory["can"] = Inventory.can;

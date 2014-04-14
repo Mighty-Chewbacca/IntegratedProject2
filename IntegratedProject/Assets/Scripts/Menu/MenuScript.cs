@@ -56,7 +56,7 @@ public class MenuScript : MonoBehaviour
             Application.LoadLevel(1);
         }
     }
-
+    //set the gui to that of the current menu
     void OnGUI()
     {
         GUI.skin = myskin;
@@ -239,27 +239,28 @@ public class MenuScript : MonoBehaviour
 
         //set up NPC dialogs
         // first parameter is the name of the object the second is the dialogue
-        if (!DataStore.NPCText.ContainsKey("PickObject")) { DataStore.NPCText.Add("PickObject", "press 'E' to lift up some objects!"); }
-        if (!DataStore.NPCText.ContainsKey("DropObject")) { DataStore.NPCText.Add("DropObject", "Press 'E' again to drop them."); }
-        if (!DataStore.NPCText.ContainsKey("JumpSign")) { DataStore.NPCText.Add("JumpSign", "Press Space to jump"); }
-        if (!DataStore.NPCText.ContainsKey("MoveSign")) { DataStore.NPCText.Add("MoveSign", "Use A and D to move Left/Right!"); }
+        if (!DataStore.NPCText.ContainsKey("PickObject")) { DataStore.NPCText.Add("PickObject", "Right Click to lift up some objects!"); }
+        if (!DataStore.NPCText.ContainsKey("DropObject")) { DataStore.NPCText.Add("DropObject", "Right Click again to drop them."); }
+        if (!DataStore.NPCText.ContainsKey("JumpSign")) { DataStore.NPCText.Add("JumpSign", "Press UP to jump"); }
+        if (!DataStore.NPCText.ContainsKey("MoveSign")) { DataStore.NPCText.Add("MoveSign", "Left and Right arrows to move!"); }
         if (!DataStore.NPCText.ContainsKey("MovingPSign")) { DataStore.NPCText.Add("MovingPSign", "Some Platforms even move!"); }
         if (!DataStore.NPCText.ContainsKey("PickupsSign")) { DataStore.NPCText.Add("PickupsSign", "You should pick up all rubbish!"); }
         if (!DataStore.NPCText.ContainsKey("EnemySign")) { DataStore.NPCText.Add("EnemySign", "This wee guy takes off 1 heart!"); }
         if (!DataStore.NPCText.ContainsKey("AttackSign")) { DataStore.NPCText.Add("AttackSign", "Click the mouse to attack!"); }
         if (!DataStore.NPCText.ContainsKey("DoorSign")) { DataStore.NPCText.Add("DoorSign", "Get a key to unlock the door!"); }
-        if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "RightClick to go back to level 1"); }
+        if (!DataStore.NPCText.ContainsKey("TeleSign")) { DataStore.NPCText.Add("TeleSign", "RightClick to go back to Glasgow"); }
         if (!DataStore.NPCText.ContainsKey("FruitSign")) { DataStore.NPCText.Add("FruitSign", "This Fruit can heal you!"); }
         if (!DataStore.NPCText.ContainsKey("CheckPoint1")) { DataStore.NPCText.Add("CheckPoint1", "Signs like me save your progress!"); }
         if (!DataStore.NPCText.ContainsKey("EndTutSign")) { DataStore.NPCText.Add("EndTutSign", "Now you're on your own! Collect as much trash as possible!"); }
-        if (!DataStore.NPCText.ContainsKey("HubTeleportSign")) { DataStore.NPCText.Add("HubTeleportSign", "Right Click to go to the HUB!"); }
-
+        if (!DataStore.NPCText.ContainsKey("HubTeleportSign")) { DataStore.NPCText.Add("HubTeleportSign", "Right Click Signs with a T to go to the HUB!"); }
+        if (!DataStore.NPCText.ContainsKey("ClickSign")) { DataStore.NPCText.Add("ClickSign", "Left Click to continue when at a sign!"); }
+        if (!DataStore.NPCText.ContainsKey("PauseSign")) { DataStore.NPCText.Add("PauseSign", "Press Escape to pause the game!"); }
 
         //chat for the sign that teaches how to unlock a door
         #region doorUnlock
         if (!DataStore.NPCText.ContainsKey("DoorSign0")) { DataStore.NPCText.Add("DoorSign0", "Use your key to open this!"); }
         if (!DataStore.NPCText.ContainsKey("DoorSign1")) { DataStore.NPCText.Add("DoorSign1", "You can get a key from the HUB"); }
-        if (!DataStore.NPCText.ContainsKey("DoorSign2")) { DataStore.NPCText.Add("DoorSign2", "Press 'action' to open the door"); }
+        if (!DataStore.NPCText.ContainsKey("DoorSign2")) { DataStore.NPCText.Add("DoorSign2", "Right Click to open the door"); }
         #endregion
 
         // chat for keymaster in hub
@@ -291,7 +292,7 @@ public class MenuScript : MonoBehaviour
 
         //clyde in tutorial chats
         #region Clyde(tutorial)
-        if (!DataStore.NPCText.ContainsKey("ClydeT0")) { DataStore.NPCText.Add("ClydeT0", "Hi there"); }
+        if (!DataStore.NPCText.ContainsKey("ClydeT0")) { DataStore.NPCText.Add("ClydeT0", "Hi there kiddo"); }
         if (!DataStore.NPCText.ContainsKey("ClydeT1")) { DataStore.NPCText.Add("ClydeT1", "Congrats on getting through the tutorial!"); }
         if (!DataStore.NPCText.ContainsKey("ClydeT2")) { DataStore.NPCText.Add("ClydeT2", "I'm Clyde, the Glasgow 2014 Mascot!"); }
         if (!DataStore.NPCText.ContainsKey("ClydeT3")) { DataStore.NPCText.Add("ClydeT3", "I really need your help"); }
@@ -308,10 +309,10 @@ public class MenuScript : MonoBehaviour
         // Builder chats
         #region Builder
         if (!DataStore.NPCText.ContainsKey("Builder0")) { DataStore.NPCText.Add("Builder0", "Talk to me to upgrade the Houses"); }
-        if (!DataStore.NPCText.ContainsKey("Builder1")) { DataStore.NPCText.Add("Builder1", "It will cost you 5 paper and a hammer!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder1")) { DataStore.NPCText.Add("Builder1", "It will cost you 5 paper, 5 bottles and a hammer!"); }
         if (!DataStore.NPCText.ContainsKey("Builder2")) { DataStore.NPCText.Add("Builder2", "Are you sure?"); }
         if (!DataStore.NPCText.ContainsKey("Builder3")) { DataStore.NPCText.Add("Builder3", "Congratulations you have helped me build them!"); }
-        if (!DataStore.NPCText.ContainsKey("Builder4")) { DataStore.NPCText.Add("Builder4", "Sorry, you dont have enough Paper!"); }
+        if (!DataStore.NPCText.ContainsKey("Builder4")) { DataStore.NPCText.Add("Builder4", "Sorry, you dont have enough Paper or bottles!"); }
         if (!DataStore.NPCText.ContainsKey("Builder5")) { DataStore.NPCText.Add("Builder5", "It's okay, you just need to find more!"); }
         if (!DataStore.NPCText.ContainsKey("Builder6")) { DataStore.NPCText.Add("Builder6", "Come back when you get it!"); }
         if (!DataStore.NPCText.ContainsKey("Builder7")) { DataStore.NPCText.Add("Builder7", "The houses are already finished!"); }
@@ -321,7 +322,7 @@ public class MenuScript : MonoBehaviour
         // gardener chats
         #region Gardener
         if (!DataStore.NPCText.ContainsKey("Gardener0")) { DataStore.NPCText.Add("Gardener0", "Talk to me to upgrade the gardens"); }
-        if (!DataStore.NPCText.ContainsKey("Gardener1")) { DataStore.NPCText.Add("Gardener1", "It will cost you 5 Bottles"); }
+        if (!DataStore.NPCText.ContainsKey("Gardener1")) { DataStore.NPCText.Add("Gardener1", "It will cost you 5 Bottles and my trowel!"); }
         if (!DataStore.NPCText.ContainsKey("Gardener2")) { DataStore.NPCText.Add("Gardener2", "Are you sure?"); }
         if (!DataStore.NPCText.ContainsKey("Gardener3")) { DataStore.NPCText.Add("Gardener3", "Congratulations, the Gardens are done!"); }
         if (!DataStore.NPCText.ContainsKey("Gardener4")) { DataStore.NPCText.Add("Gardener4", "Sorry, you dont have enough Bottles!"); }
@@ -333,7 +334,7 @@ public class MenuScript : MonoBehaviour
         // decorator chats
         #region Decorator
         if (!DataStore.NPCText.ContainsKey("Decorator0")) { DataStore.NPCText.Add("Decorator0", "Talk to me to upgrade decorations"); }
-        if (!DataStore.NPCText.ContainsKey("Decorator1")) { DataStore.NPCText.Add("Decorator1", "It will cost you 5 Paper"); }
+        if (!DataStore.NPCText.ContainsKey("Decorator1")) { DataStore.NPCText.Add("Decorator1", "It will cost you 5 Paper and my brush!"); }
         if (!DataStore.NPCText.ContainsKey("Decorator2")) { DataStore.NPCText.Add("Decorator2", "Are you sure?"); }
         if (!DataStore.NPCText.ContainsKey("Decorator3")) { DataStore.NPCText.Add("Decorator3", "Congratulations, the decorations are done!"); }
         if (!DataStore.NPCText.ContainsKey("Decorator4")) { DataStore.NPCText.Add("Decorator4", "Sorry, you dont have enough Paper!"); }
@@ -342,5 +343,12 @@ public class MenuScript : MonoBehaviour
         if (!DataStore.NPCText.ContainsKey("Decorator7")) { DataStore.NPCText.Add("Decorator7", "Sorry you still need my paintbrush!"); }
         #endregion
 
+        //create entries for all doors in the game and set them all to locked
+        if (!DataStore.DoorsOpened.ContainsKey("Door1")) { DataStore.DoorsOpened.Add("Door1", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door2")) { DataStore.DoorsOpened.Add("Door2", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door3")) { DataStore.DoorsOpened.Add("Door3", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door4")) { DataStore.DoorsOpened.Add("Door4", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door5")) { DataStore.DoorsOpened.Add("Door5", true); }
+        if (!DataStore.DoorsOpened.ContainsKey("Door6")) { DataStore.DoorsOpened.Add("Door6", true); }
     }
 }

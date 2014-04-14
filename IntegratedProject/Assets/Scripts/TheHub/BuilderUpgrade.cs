@@ -95,7 +95,7 @@ public class BuilderUpgrade : MonoBehaviour
             //draw gui box
             GUI.skin = myskin;
             // 14 pixel width per character including spaces and spec chars
-            GUI.Box(new Rect(screenPos.x, (screenHeight - 500), (DataStore.NPCText[this.gameObject.name].Length * 12), 100), DataStore.NPCText[this.gameObject.name]);
+            GUI.Box(new Rect(screenPos.x, (screenHeight - 500), (DataStore.NPCText[this.gameObject.name].Length * 8), 100), DataStore.NPCText[this.gameObject.name]);
             Time.timeScale = 0;
             canTouch = false;
 
@@ -133,15 +133,21 @@ public class BuilderUpgrade : MonoBehaviour
                     chatValue = 4;
                     Chat();
                 }
+                if (Inventory.bottle < 5)
+                {
+                    chatValue = 4;
+                    Chat();
+                }
                 if (Inventory.hammer < 1)
                 {
                     chatValue = 8;
                     Chat();
                 }
 
-                if (Inventory.paper >= 5 && Inventory.hammer > 0)
+                if (Inventory.paper >= 5 && Inventory.hammer > 0 && Inventory.bottle >= 5)
                 {
                     Inventory.paper -= 5;
+                    Inventory.bottle -= 5;
                     MyBuilding.currentSprite++;
                     SaveBuildingState();
                     chatValue = 3;
