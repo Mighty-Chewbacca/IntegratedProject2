@@ -14,6 +14,7 @@ public class BuilderUpgrade : MonoBehaviour
     private float timeSincelastTouched = 2.0f;
     bool canTouch = true;
     public ChangeSprites MyBuilding;
+    public static bool housesUpgraded = false;
 
     // Use this for initialization
     void Start()
@@ -33,6 +34,8 @@ public class BuilderUpgrade : MonoBehaviour
 
     void Update()
     {
+        if (MyBuilding.currentSprite == 1)
+            housesUpgraded = true;
         Chat();
         screenPos = MyCamera.camera.WorldToScreenPoint(target.position);
     }
@@ -220,6 +223,6 @@ public class BuilderUpgrade : MonoBehaviour
     void SaveBuildingState()
     {
         DataStore.HUBBuildings["houses"] = MyBuilding.currentSprite;
-        DataStore.DT.SaveToFile();
+        DataStore.DT.SyncDataWithDT();
     }
 }

@@ -134,6 +134,7 @@ public class KeyMasterChat : MonoBehaviour
                 {
                     Inventory.can -= 5;
                     Inventory.keys++;
+                    DataStore.DT.SyncDataWithDT();
                     chatValue = 4;
                     Chat();
                 }

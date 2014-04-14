@@ -12,6 +12,8 @@ using System.Collections;
 public class movementScript : MonoBehaviour 
 {
 	//speed value
+    public SoundScript player;
+
 	public float maxSpeed = 10.0f;
 	public bool facingRight = true;
 	public bool isLifting = false;
@@ -100,7 +102,6 @@ public class movementScript : MonoBehaviour
 
 		if (((RHray) ||(LHray)))
 		{
-
 			grounded = true;
 		}
 
@@ -112,10 +113,11 @@ public class movementScript : MonoBehaviour
         if (!isLifting)
         {
 
-            if ((grounded) && (Input.GetKey(KeyCode.Space)))
+            if ((grounded) && (Input.GetKey(KeyCode.UpArrow)))
             {
                 grounded = false;
                 rigidbody2D.AddForce(new Vector2(0, jumpforce));
+                player.au_jump.Play();
             }
 
             else if (bouncy)

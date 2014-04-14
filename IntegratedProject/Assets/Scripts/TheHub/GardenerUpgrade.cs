@@ -14,6 +14,7 @@ public class GardenerUpgrade : MonoBehaviour
     private float timeSincelastTouched = 2.0f;
     bool canTouch = true;
     public ChangeSprites MyBuilding;
+    public static bool gardensUpgraded = false;
 
     // Use this for initialization
     void Start()
@@ -33,6 +34,8 @@ public class GardenerUpgrade : MonoBehaviour
 
     void Update()
     {
+        if (MyBuilding.currentSprite == 1)
+            gardensUpgraded = true;
         Chat();
         screenPos = MyCamera.camera.WorldToScreenPoint(target.position);
     }
@@ -203,6 +206,7 @@ public class GardenerUpgrade : MonoBehaviour
     void SaveBuildingState()
     {
         DataStore.HUBBuildings["gardens"] = MyBuilding.currentSprite;
-        DataStore.DT.SaveToFile();
+
+        DataStore.DT.SyncDataWithDT();
     }
 }

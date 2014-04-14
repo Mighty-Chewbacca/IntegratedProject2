@@ -5,6 +5,7 @@ public class HealthScript : MonoBehaviour
 {
     //comments!!!
     //This is health!!!!
+    public SoundScript player;
     public static short health = 4;
     public static short maxHealt = 4;
     public Texture2D heart;
@@ -28,7 +29,7 @@ public class HealthScript : MonoBehaviour
     {
         Debug.Log("Called Death() Method successfully");
         charAnimation.SetBool("Dead", true);
-
+        player.au_death.Play();
         SpawnPlayer.SpawnPlayerToLastCheckpoint(true, true);
         //LoadLastCheckpoint ();
     }
@@ -38,11 +39,13 @@ public class HealthScript : MonoBehaviour
         if (col.collider.tag == "1Damage" && damageCalled == false)
         {
             damageCalled = true;
+            player.au_playerhit.Play();
             StartCoroutine(DamageTimer(damage1));
         }
         if (col.collider.tag == "2Damage" && damageCalled == false)
         {
             damageCalled = true;
+            player.au_playerhit.Play();
             StartCoroutine(DamageTimer(damage2));
         }
         else if (col.collider.tag == "death" && damageCalled == false)

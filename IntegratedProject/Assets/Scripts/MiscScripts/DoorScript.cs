@@ -10,6 +10,7 @@ public class DoorScript : MonoBehaviour
     public bool doorLocked;
     public Sprite open, close;
     SpriteRenderer myRenderer;
+    public AudioSource au_dooropen;
 
 	// Use this for initialization
 	void Start () 
@@ -22,6 +23,13 @@ public class DoorScript : MonoBehaviour
         if (!DataStore.DoorsOpened.ContainsKey("Door6")) { DataStore.DoorsOpened.Add("Door6", true); }
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         doorLocked = DataStore.DoorsOpened[this.name];
+
+        AudioClip openSound;
+        openSound = (AudioClip)Resources.Load("SFX/openDoor");
+
+        au_dooropen = (AudioSource)gameObject.AddComponent("AudioSource");
+        au_dooropen.clip = openSound;
+        au_dooropen.loop = false;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +42,7 @@ public class DoorScript : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 Inventory.keys--;
+                au_dooropen.Play();
                 doorLocked = false;
             }
         }

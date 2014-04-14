@@ -14,6 +14,7 @@ public class DecoratorUpgrade : MonoBehaviour
     private float timeSincelastTouched = 2.0f;
     bool canTouch = true;
     public ChangeSprites MyBuilding;
+    public static bool decorationsUpgraded = false;
 
     // Use this for initialization
     void Start()
@@ -33,6 +34,8 @@ public class DecoratorUpgrade : MonoBehaviour
 
     void Update()
     {
+        if (MyBuilding.currentSprite == 1)
+            decorationsUpgraded = true;
         Chat();
         screenPos = MyCamera.camera.WorldToScreenPoint(target.position);
     }
@@ -204,6 +207,6 @@ public class DecoratorUpgrade : MonoBehaviour
     void SaveBuildingState()
     {
         DataStore.HUBBuildings["decorations"] = MyBuilding.currentSprite;
-        DataStore.DT.SaveToFile();
+        DataStore.DT.SyncDataWithDT();
     }
 }

@@ -16,12 +16,12 @@ public class ObjectMovementScript : MonoBehaviour
     {
         distance = Vector2.Distance(player.transform.position, this.transform.position);
 
-        if (distance < 2.5f && (Input.GetKeyDown(KeyCode.E)) && isLifted == false)
+        if (distance < 2.5f && (Input.GetMouseButtonDown(1)) && isLifted == false)
         {
             Lifted();
         }
 
-        else if (Input.GetKeyDown(KeyCode.E) && isLifted == true)
+        else if (Input.GetMouseButtonDown(1) && isLifted == true)
         {
             isLifted = false;
             playerMovementScript.isLifting = false;

@@ -13,7 +13,7 @@ public class PickupScript : MonoBehaviour
 			print("can got");
 			Inventory.can ++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
 			gameObject.SetActive(false);
 
 		}
@@ -23,7 +23,7 @@ public class PickupScript : MonoBehaviour
 			print("can got");
 			Inventory.bottle++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
 			gameObject.SetActive(false);
 
 		}
@@ -33,7 +33,7 @@ public class PickupScript : MonoBehaviour
 			print("paper got");
 			Inventory.paper++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
 			gameObject.SetActive(false);
 
 		}
@@ -43,7 +43,7 @@ public class PickupScript : MonoBehaviour
 			print("Apple got");
             HealthScript.health++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
 			gameObject.SetActive(false);
 
 		}
@@ -51,7 +51,7 @@ public class PickupScript : MonoBehaviour
         {
             Inventory.hammer++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
             gameObject.SetActive(false);
 
         }
@@ -59,7 +59,7 @@ public class PickupScript : MonoBehaviour
         {
             Inventory.paintbrush++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
             gameObject.SetActive(false);
 
         }
@@ -67,7 +67,7 @@ public class PickupScript : MonoBehaviour
         {
             Inventory.trowel++;
             player.au_pickup.Play();
-            DataStore.DT.SaveToFile();
+            DataStore.DT.SyncDataWithDT();
             gameObject.SetActive(false);
 
         }
