@@ -144,12 +144,12 @@ public class DataStore : MonoBehaviour
         DataStore.PlayerInventory["paintbrush"] = 0;
 
 
-        DataStore.DoorsOpened["Door1"] = false;
-        DataStore.DoorsOpened["Door2"] = false;
-        DataStore.DoorsOpened["Door3"] = false;
-        DataStore.DoorsOpened["Door4"] = false;
-        DataStore.DoorsOpened["Door5"] = false;
-        DataStore.DoorsOpened["Door6"] = false;
+        DataStore.DoorsOpened["Door1"] = true;
+        DataStore.DoorsOpened["Door2"] = true;
+        DataStore.DoorsOpened["Door3"] = true;
+        DataStore.DoorsOpened["Door4"] = true;
+        DataStore.DoorsOpened["Door5"] = true;
+        DataStore.DoorsOpened["Door6"] = true;
 
         DataStore.HUBBuildings["gardens"] = 0;
         DataStore.HUBBuildings["houses"] = 0;
