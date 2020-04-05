@@ -1,5 +1,4 @@
-IntegratedProject2
-==================
+# moved to GitLab
 
 GCU IP2, Group 8 Computer Games Development
 
